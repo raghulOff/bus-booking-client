@@ -2,10 +2,11 @@
 
 module.exports = function (environment) {
   const ENV = {
-    modulePrefix: 'trying-auth-client',
+    modulePrefix: 'bus-booking-client',
     environment,
-    rootURL: '/',
+    rootURL: '/busBookingServer/',
     locationType: 'history',
+    apiBaseUrl: 'http://localhost:8080/busBookingServer/api',
     EmberENV: {
       EXTEND_PROTOTYPES: false,
       FEATURES: {

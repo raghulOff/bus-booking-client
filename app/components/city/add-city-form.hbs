@@ -1,0 +1,13 @@
+<html>
+  <head></head>
+  <body>
+    <div class="bus-form-container">
+
+      <ul>
+        <li>City Name: <input type="text" name="cityName" {{on "input" this.handleInput}}/></li>
+        <button type="button" {{on "click" this.addNewCity}}>Add</button>
+      </ul>
+    </div>
+
+  </body>
+</html>

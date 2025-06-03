@@ -1,0 +1,22 @@
+<html>
+  <head></head>
+  <body>
+    <div>
+      <form {{on "submit" this.onSubmit}}>
+        <div>Add Developer Form</div>
+        <br>
+        <label>
+          <span>Username</span>
+          <Input @value={{this.username}} />
+        </label>
+        <br><br>
+        <label>
+          <span>Password</span>
+          <Input @type="password" @value={{this.password}} />
+        </label>
+        <br><br>
+        <button type="submit" disabled={{this.disableSubmit}}>Create</button>
+      </form>
+    </div>
+  </body>
+</html>

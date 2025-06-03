@@ -1,5 +1,5 @@
-import Application from 'trying-auth-client/app';
-import config from 'trying-auth-client/config/environment';
+import Application from 'bus-booking-client/app';
+import config from 'bus-booking-client/config/environment';
 import * as QUnit from 'qunit';
 import { setApplication } from '@ember/test-helpers';
 import { setup } from 'qunit-dom';

@@ -1,0 +1,82 @@
+{{page-title "Home"}}
+{{outlet}}
+
+<div class="home-container">
+
+  <div class="bus-search-container">
+    <label>From
+      <select
+        {{on "change" this.setFromLocation}}
+        class="from-cities"
+        id="from-cities"
+      >
+        <option disabled selected value>From</option>
+        {{#each @model.cityData as |city|}}
+          <option
+            value={{city}}
+            selected={{eq city this.fromLocation}}
+          >{{city}}</option>
+        {{/each}}
+      </select>
+    </label>
+
+    <label>To
+      <select
+        {{on "change" this.setToLocation}}
+        class="to-cities"
+        id="to-cities"
+      >
+        <option disabled selected value>To</option>
+
+        {{#each @model.cityData as |city|}}
+          <option
+            value={{city}}
+            selected={{eq city this.toLocation}}
+          >{{city}}</option>
+        {{/each}}
+      </select>
+    </label>
+    <label>Date Of Journey
+      <input
+        class="doj-input"
+        type="date"
+        {{on "input" this.updateDate}}
+        value={{this.date}}
+      /></label>
+    <button
+      class="bus-search-btn"
+      type="button"
+      {{on "click" this.searchBus}}
+    >🔍︎</button>
+
+  </div>
+  <div class="bus-result-container">
+
+    {{#if this.busdetails}}
+      <div class="bus-list">
+        {{#each this.busdetails as |bus|}}
+          <div class="bus-card">
+            <h3>Bus Number: {{bus.busNumber}}</h3>
+            <p>Type: {{bus.busType}}</p>
+            <p>Departure: {{bus.departureTime}}</p>
+            <p>Arrival: {{bus.arrivalTime}}</p>
+            <p>Available Seats: {{bus.availableSeats}}</p>
+            <p>Price: ₹{{bus.price}}</p>
+            <p>Operator name: {{bus.operatorName}}</p>
+            <p>Distance km: {{bus.distanceKm}}</p>
+            <button class="bus-card-book-btn" type="button" {{on "click" (fn this.bookNow bus)}}>Book</button>
+          </div>
+        {{!-- {{else}} --}}
+        {{/each}}
+        {{!-- <p>No buses available</p> --}}
+      </div>
+    {{/if}}
+  </div>
+
+  {{!-- <button
+      class="logout-button"
+      type="button"
+      {{on "click" this.logout}}
+    >Logout</button> --}}
+
+</div>
