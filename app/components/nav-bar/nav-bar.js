@@ -7,10 +7,12 @@ export default class NavBarComponent extends Component {
   @service session;
   @service router;
 
+  
   @tracked loggedIn = this.session.user;
   @action
   async logout() {
     await this.session.logout();
+    this.loggedIn = null;
     this.router.transitionTo('login');
   }
 }
