@@ -8,8 +8,8 @@
           <select name="source" id="" {{on "input" this.handleInput}}>
             <option disabled selected value>-</option>
             {{#each this.allCities as |city|}}
-              <option value={{city}}>
-                {{city}}
+              <option value={{city.cityName}}>
+                {{city.cityName}}
               </option>
             {{/each}}
           </select>
@@ -18,8 +18,8 @@
           <select name="destination" id="" {{on "input" this.handleInput}}>
             <option disabled selected value>-</option>
             {{#each this.allCities as |city|}}
-              <option value={{city}}>
-                {{city}}
+              <option value={{city.cityName}}>
+                {{city.cityName}}
               </option>
             {{/each}}
           </select>

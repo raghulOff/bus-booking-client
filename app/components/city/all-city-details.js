@@ -7,9 +7,9 @@ import { BUS_ENDPOINTS } from '../../services/api-endpoints';
 
 export default class AddBusFormComponent extends Component {
   @service apiGet;
-  @service apiPost;
+  
 
-  @tracked buses = [];
+  @tracked cities = [];
   @tracked editingBusId = null;
 
   @tracked editBusNo = '';
@@ -19,10 +19,10 @@ export default class AddBusFormComponent extends Component {
 
   constructor() {
     super(...arguments);
-    this.fetchBuses();
+    this.fetchCities();
   }
 
-  async fetchBuses() {
+  async fetchCities() {
     try {
       const response = await this.apiGet.get(BUS_ENDPOINTS.getAllBuses);
       this.buses = response;

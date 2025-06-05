@@ -13,9 +13,9 @@
         <option disabled selected value>From</option>
         {{#each @model.cityData as |city|}}
           <option
-            value={{city}}
-            selected={{eq city this.fromLocation}}
-          >{{city}}</option>
+            value={{city.cityName}}
+            selected={{eq city.cityName this.fromLocation}}
+          >{{city.cityName}}</option>
         {{/each}}
       </select>
     </label>
@@ -30,9 +30,9 @@
 
         {{#each @model.cityData as |city|}}
           <option
-            value={{city}}
-            selected={{eq city this.toLocation}}
-          >{{city}}</option>
+            value={{city.cityName}}
+            selected={{eq city.cityName this.toLocation}}
+          >{{city.cityName}}</option>
         {{/each}}
       </select>
     </label>
@@ -66,17 +66,9 @@
             <p>Distance km: {{bus.distanceKm}}</p>
             <button class="bus-card-book-btn" type="button" {{on "click" (fn this.bookNow bus)}}>Book</button>
           </div>
-        {{!-- {{else}} --}}
         {{/each}}
-        {{!-- <p>No buses available</p> --}}
       </div>
     {{/if}}
   </div>
-
-  {{!-- <button
-      class="logout-button"
-      type="button"
-      {{on "click" this.logout}}
-    >Logout</button> --}}
 
 </div>

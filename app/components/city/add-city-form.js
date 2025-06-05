@@ -24,8 +24,12 @@ export default class AddCityFormComponent extends Component {
       const data = {
         cityName: this.cityName
       };
-      const result = await this.apiPost.post(CITY_ENDPOINTS.addCity, data);
-      console.log(result);
+      const response = await this.apiPost.post(CITY_ENDPOINTS.addCity, data);
+      let result = await response.text();
+      alert(result);
+      if (!response.ok) {
+        throw response
+      }
     } catch (error) {
       console.error('error adding city: ', error);
     }

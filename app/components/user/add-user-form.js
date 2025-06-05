@@ -21,10 +21,13 @@ export default class AddUserFormComponent extends Component {
     };
 
     try {
-      const result = await this.apiPost.post(USER_ENDPOINTS.signup, data);
+      const response = await this.apiPost.post(USER_ENDPOINTS.signup, data);
+      if (!response.ok) {
+        alert("User already exists");
+        throw response;
+      }
       alert('User added Successfully');
     } catch (e) {
-      alert('User already exists');
       console.error(e);
       throw e;
     }

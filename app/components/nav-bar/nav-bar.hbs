@@ -15,7 +15,7 @@
             <div class="dropdown-content">
               <a>Profile</a>
               <a>Bookings</a>
-              {{#if this.loggedIn}}
+              {{#if this.session.user}}
                 <a {{on "click" this.logout}}>Logout</a>
               {{/if}}
             </div>

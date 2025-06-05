@@ -2,22 +2,26 @@
 export const BUS_ENDPOINTS = {
     getSearchBuses: '/bus/get-buses',
     getAllBuses: '/bus/get-all-buses',
-    addBus: '/add-bus'
+    addBus: '/bus/add-bus',
+    deleteBus: '/bus/delete-bus',
+    updateBus: '/bus/update-bus'
 }
 
 export const CITY_ENDPOINTS = {
-  getAllCities: '/city/get-cities',
-  addCity: '/manage/add-city'
+    getAllCities: '/city/get-cities',
+    addCity: '/city/add-city'
 };
 
 
 export const ROUTE_ENDPOINTS = {
-    addRoute: '/manage/add-route',
-    getAllRoutes: '/route/get-routes'
+    addRoute: '/route/add-route',
+    getAllRoutes: '/route/get-routes',
+    deleteRoute: '/route/delete-route',
+    updateRoute: '/route/update-route'
 }
 
 export const SCHEDULE_ENDPOINTS = {
-    addSchedule: '/manage/add-schedule',
+    addSchedule: '/schedule/add-schedule',
     getAllSchedules: '/schedule/get-schedules'
 }
 

@@ -2,22 +2,19 @@ import Component from '@ember/component';
 import { tracked } from '@glimmer/tracking';
 import { service } from '@ember/service';
 import { action } from '@ember/object';
-import { ROUTE_ENDPOINTS } from '../../services/api-endpoints';
+import { CITY_ENDPOINTS, ROUTE_ENDPOINTS } from '../../../services/api-endpoints';
 
 export default class AddRouteFormComponent extends Component {
-  @service cityData;
+  @service apiGet;
   @tracked allCities = null;
-
+  @service apiPost;
   @tracked source = '';
   @tracked destination = '';
   @tracked distance = null;
   @tracked timeTravel = null;
-  @service apiPost;
-
-
-
+  @service route;
   @action handleInput(event) {
-    const {name, value} = event.target;
+    const { name, value } = event.target;
     this[name] = value;
   }
 
@@ -28,11 +25,16 @@ export default class AddRouteFormComponent extends Component {
         source: this.source,
         destination: this.destination,
         distanceKm: this.distance,
-        estimatedTime: this.timeTravel
+        estimatedTime: this.timeTravel,
       };
 
-      const result = await this.apiPost.post(ROUTE_ENDPOINTS.addRoute, data);
-      console.log(result);
+      const response = await this.apiPost.post(ROUTE_ENDPOINTS.addRoute, data);
+      let result = await response.text();
+      alert(result);
+      if (!response.ok) {
+        throw response;
+      }
+      this.route.fetchRoutes();
     } catch (error) {
       console.error('error adding city: ', error);
     }
@@ -45,9 +47,9 @@ export default class AddRouteFormComponent extends Component {
 
   async loadCities() {
     try {
-      this.allCities = await this.cityData.getCityData();
-      const cityArray = Object.values(this.allCities);
-      this.allCities = cityArray;
+
+      this.allCities = await this.apiGet.get(CITY_ENDPOINTS.getAllCities);
+
     } catch (error) {
       console.error(error);
       throw error;

@@ -3,13 +3,6 @@
   <body>
 
     <div class="bus-form-container">
-      <button type="button" {{on "click" this.toggleBusList}}>
-        {{if this.showBusList "⬆ Hide All Buses" "⬇ Show All Buses"}}
-      </button>
-
-      {{#if this.showBusList}}
-        {{bus/all-bus-details}}
-      {{/if}}
 
       <br /><br />
       <ul>
