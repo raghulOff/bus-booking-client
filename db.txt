@@ -1,0 +1,50 @@
+🧾 1. users
+CREATE TABLE users (
+    user_id SERIAL PRIMARY KEY,
+    username VARCHAR(50) UNIQUE NOT NULL,
+    password TEXT NOT NULL,
+    role VARCHAR(20) DEFAULT 'user', -- e.g., user/admin
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+🧭 2. cities
+CREATE TABLE cities (
+    city_id SERIAL PRIMARY KEY,
+    name VARCHAR(100) UNIQUE NOT NULL
+);
+🚌 3. buses
+CREATE TABLE buses (
+    bus_id SERIAL PRIMARY KEY,
+    bus_number VARCHAR(20) UNIQUE NOT NULL,
+    bus_type VARCHAR(30), -- e.g., AC, Non-AC, Sleeper
+    total_seats INT NOT NULL,
+    operator_name VARCHAR(100)
+);
+🛣️ 4. routes
+CREATE TABLE routes (
+    route_id SERIAL PRIMARY KEY,
+    source_city_id INT REFERENCES cities(city_id),
+    destination_city_id INT REFERENCES cities(city_id),
+    distance_km INT,
+    estimated_time INTERVAL,
+    UNIQUE (source_city_id, destination_city_id)
+);
+⏰ 5. schedules
+CREATE TABLE schedules (
+    schedule_id SERIAL PRIMARY KEY,
+    route_id INT REFERENCES routes(route_id),
+    bus_id INT REFERENCES buses(bus_id),
+    departure_time TIMESTAMP NOT NULL,
+    arrival_time TIMESTAMP NOT NULL,
+    available_seats INT, -- can be calculated or updated with bookings
+    price NUMERIC(10, 2)
+);
+🧾 6. bookings
+CREATE TABLE bookings (
+    booking_id SERIAL PRIMARY KEY,
+    user_id INT REFERENCES users(user_id),
+    schedule_id INT REFERENCES schedules(schedule_id),
+    seat_number INT NOT NULL,
+    booking_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    status VARCHAR(20) DEFAULT 'CONFIRMED', -- e.g., CONFIRMED, CANCELLED
+    UNIQUE (schedule_id, seat_number)
+);
