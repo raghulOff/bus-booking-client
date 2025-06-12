@@ -15,7 +15,7 @@ export default class SpecificBusDetails extends Component {
         const passengerData = {
             seatId: seat.seatId,
             passengerName: '',
-            passengerAge: '',
+            passengerAge: 0,
         };
         if (this.bookingData.selectedSeats.includes(seat)) {
             this.bookingData.selectedSeats =
@@ -61,11 +61,18 @@ export default class SpecificBusDetails extends Component {
         });
     }
 
+    checkFilledPassengerDetails() {
+    return this.bookingData.passengerDetails.every(function(passenger) {
+        return passenger.passengerName.length > 0 && passenger.passengerAge > 0;
+    });
+}
+
     @action
     async handlePayment() {
         if (
             this.bookingData.selectedBoardingId === null ||
-            this.bookingData.selectedDroppingId === null
+            this.bookingData.selectedDroppingId === null ||
+            this.checkFilledPassengerDetails() === false
         ) {
             alert('Fill in all the details!');
             return;
