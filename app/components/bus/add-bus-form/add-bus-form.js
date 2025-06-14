@@ -39,7 +39,7 @@ export default class AddBusFormComponent extends Component {
   async addNewBus() {
     try {
       const data = {
-        busNo: this.busNo,
+        vehicleNumber: this.busNo,
         busType: this.busType,
         totalSeats: this.totalSeats,
         operatorName: this.operatorName,

@@ -69,6 +69,11 @@ export default class SpecificBusDetails extends Component {
 
     @action
     async handlePayment() {
+        if (this.bookingData.passengerDetails.length == 0) {
+            alert("Please select a seat to proceed.");
+            return;
+        }
+
         if (
             this.bookingData.selectedBoardingId === null ||
             this.bookingData.selectedDroppingId === null ||
@@ -97,6 +102,10 @@ export default class SpecificBusDetails extends Component {
         } else {
             alert('Payment Failed. Seat not booked');
         }
+        this.bookingData.passengerDetails = [];
+        this.bookingData.selectedBoardingId = null;
+        this.bookingData.selectedDroppingId = null;
+
         this.router.transitionTo('home');
     }
 }

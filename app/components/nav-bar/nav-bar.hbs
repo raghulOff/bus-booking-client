@@ -7,16 +7,20 @@
     <div class="navbar-container">
 
       <ul class="navbar-elements">
-        <li>Logo</li>
-        <li class="web-title">Fly-Bus</li>
+        <li class="web-logo" {{on "click" this.moveHome}}>Logo</li>
+        <li class="web-title" {{on "click" this.moveHome}}>Fly-Bus</li>
         <li>
           <div class="dropdown">
             <button class="dropbtn" type="button">Account</button>
             <div class="dropdown-content">
-              <a>Profile</a>
-              <a>Bookings</a>
+              <LinkTo @route="login" class="account-items">
+                Profile
+              </LinkTo>
+              <LinkTo @route="bookings" class="account-items">
+                Bookings
+              </LinkTo>
               {{#if this.session.user}}
-                <a {{on "click" this.logout}}>Logout</a>
+                <a class="account-items" {{on "click" this.logout}}>Logout</a>
               {{/if}}
             </div>
           </div>

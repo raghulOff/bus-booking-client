@@ -36,15 +36,18 @@
 
 }
 
-.dropdown-content a {
+.account-items {
   padding: 10px;
   border-radius: 10px;
   text-decoration: none;
+  color: white;
 }
 
-.dropdown-content a:hover {
+.account-items:hover {
   background-color: #00adb5;
   cursor: pointer;
 }
 
-
+.web-title, .web-logo {
+  cursor: pointer;
+}

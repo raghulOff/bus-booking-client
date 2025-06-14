@@ -41,7 +41,7 @@ export default class AddBusFormComponent extends Component {
   @action async saveBus(busId) {
     const data = {
       busId,
-      busNo: this.editBusNo,
+      vehicleNumber: this.editBusNo,
       busType: this.editBusType,
       totalSeats: this.editTotalSeats,
       operatorName: this.editOperatorName

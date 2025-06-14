@@ -6,7 +6,7 @@
 @import url('admin-home.css');
 @import url('all-bus-details.css');
 @import url('book-bus.css');
-
+@import url('bookings.css');
 * {
     margin: 0;
 }

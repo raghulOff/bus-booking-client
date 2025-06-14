@@ -8,6 +8,13 @@ export default class NavBarComponent extends Component {
   @service router;
 
   @action
+  moveHome() {
+    this.router.transitionTo('home');
+  }
+
+
+
+  @action
   async logout() {
     await this.session.logout();
     this.router.transitionTo('login');
