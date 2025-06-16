@@ -1,3 +1,6 @@
+// ENDPOINTS FILE
+
+
 
 export const BUS_ENDPOINTS = {
     getSearchBuses: '/bus/get-buses',
@@ -30,7 +33,8 @@ export const SCHEDULE_ENDPOINTS = {
 export const USER_ENDPOINTS = {
     signup: '/user/signup',
     login: '/user/login',
-    logout: '/user/logout'
+    logout: '/user/logout',
+    getRoles: '/user/get-roles',
 }
 
 export const GENERAL_ENDPOINTS = {

@@ -4,6 +4,11 @@ import { action } from '@ember/object';
 import Service, { service } from '@ember/service';
 import { ROUTE_ENDPOINTS, SCHEDULE_ENDPOINTS } from '../../../services/api-endpoints';
 
+// THIS COMPONENT IS STILL UNDER DEVELOPMENT
+
+
+
+
 export default class AllScheduleDetailsComponent extends Component {
   @service schedule;
   @service bus;

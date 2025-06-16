@@ -4,17 +4,26 @@
     <div>
       <form {{on "submit" this.onSubmit}}>
         <div>Add User Form</div>
-        <br>
+        <br />
         <label>
           <span>Username</span>
           <Input @value={{this.username}} />
         </label>
-        <br><br>
+        <br /><br />
         <label>
           <span>Password</span>
           <Input @type="password" @value={{this.password}} />
         </label>
-        <br><br>
+        <br /><br />
+        <label>Choose role
+          <select {{on "change" this.changeRole}}>
+            <option selected disabled value>Select</option>
+            {{#each this.session.roles as |role|}}
+            <option value={{role.roleName}}>{{role.roleName}}</option>
+            {{/each}}
+          </select>
+        </label>
+        <br /><br />
         <button type="submit" disabled={{this.disableSubmit}}>Create</button>
       </form>
     </div>

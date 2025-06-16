@@ -20,13 +20,4 @@ export default class AdminHomeController extends Controller {
     this.router.transitionTo('login');
   }
 
-  @action
-  goToAddUser() {
-    this.router.transitionTo('add-user');
-  }
-
-  @action
-  goToAddDeveloper() {
-    this.router.transitionTo('add-developer');
-  }
 }

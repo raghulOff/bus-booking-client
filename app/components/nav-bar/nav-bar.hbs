@@ -16,9 +16,11 @@
               <LinkTo @route="login" class="account-items">
                 Profile
               </LinkTo>
+              {{#if (eq this.session.user.roleId 3)}}
               <LinkTo @route="bookings" class="account-items">
                 Bookings
               </LinkTo>
+              {{/if}}
               {{#if this.session.user}}
                 <a class="account-items" {{on "click" this.logout}}>Logout</a>
               {{/if}}

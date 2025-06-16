@@ -8,8 +8,7 @@
     <div class="sidebar">
       <ul>
         <h3>Admin Panel</h3>
-        <li {{on "click" (fn this.setActivePanel "user")}}>User</li>
-        <li {{on "click" (fn this.setActivePanel "developer")}}>Developer</li>
+        <li {{on "click" (fn this.setActivePanel "user")}}>Add</li>
         <li {{on "click" (fn this.setActivePanel "schedule")}}>Schedule</li>
         <li {{on "click" (fn this.setActivePanel "route")}}>Route</li>
         <li {{on "click" (fn this.setActivePanel "bus")}}>Bus</li>
@@ -19,12 +18,9 @@
 
     <div class="content">
       {{#if (eq this.activePanel "user")}}
-        
         {{user/add-user-form}}
-      {{else if (eq this.activePanel "developer")}}
-        {{developer/add-developer-form}}
       {{else if (eq this.activePanel "schedule")}}
-        {{schedule/add-schedule-form}}
+        {{schedule/schedule-form}}
 
       {{else if (eq this.activePanel "route")}}
         {{route/route-form}}

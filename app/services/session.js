@@ -8,6 +8,15 @@ import { USER_ENDPOINTS } from './api-endpoints';
 export default class SessionService extends Service {
   @service router
   @tracked user = null;
+  @tracked roles = [];
+  @service apiGet;
+  async getRoles() {
+    const result = await this.apiGet.get(USER_ENDPOINTS.getRoles);
+    this.roles = result;
+  }
+
+
+
 
   async checkStatus(currentPage) {
   

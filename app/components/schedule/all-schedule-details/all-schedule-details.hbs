@@ -1,3 +1,6 @@
+{{!-- // THIS COMPONENT IS STILL UNDER DEVELOPMENT --}}
+
+
 <html>
   <head></head>
   <body>
@@ -38,7 +41,7 @@
                       <option
                         selected={{eq this.editBusId bus.busId}}
                         value={{bus.busId}}
-                      >{{bus.busNo}}
+                      >{{bus.vehicleNumber}}
                         -{{bus.busType}}-{{bus.operatorName}}
                       </option>
                     {{/each}}
@@ -81,11 +84,15 @@
                 </td>
                 <td>
                   <button
-                    type="button" {{on "click" (fn this.saveRoute schedule.scheduleId)}}
+                    type="button"
+                    {{on "click" (fn this.saveRoute schedule.scheduleId)}}
                   >Save</button>
                 </td>
                 <td>
-                  <button type="button" {{on "click" this.cancelSchedule}}>Cancel</button>
+                  <button
+                    type="button"
+                    {{on "click" this.cancelSchedule}}
+                  >Cancel</button>
                 </td>
               {{else}}
                 {{#each this.route.routes as |route|}}
@@ -106,10 +113,12 @@
                 <td>{{schedule.price}}</td>
                 <td>{{schedule.journeyDate}}</td>
                 <td><button
-                    type="button" {{on "click" (fn this.editSchedule schedule)}}
+                    type="button"
+                    {{on "click" (fn this.editSchedule schedule)}}
                   >Edit</button></td>
                 <td><button
-                    type="button" {{on "click" (fn this.deleteSchedule schedule.scheduleId)}}
+                    type="button"
+                    {{on "click" (fn this.deleteSchedule schedule.scheduleId)}}
                   >Delete</button></td>
               {{/if}}
             </tr>

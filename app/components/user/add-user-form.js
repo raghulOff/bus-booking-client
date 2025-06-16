@@ -8,6 +8,15 @@ export default class AddUserFormComponent extends Component {
   @tracked username = '';
   @tracked password = '';
   @service apiPost;
+  @service session;
+  @tracked selectedRole = '';
+
+  @action
+  changeRole (event) {
+    this.selectedRole = event.target.value;
+    console.log(this.selectedRole);
+  }
+
   get disableSubmit() {
     return !this.username.length || !this.password.length;
   }
@@ -17,16 +26,16 @@ export default class AddUserFormComponent extends Component {
     const data = {
       username: this.username,
       password: this.password,
-      role: 'USER',
+      role: this.selectedRole,
     };
 
     try {
       const response = await this.apiPost.post(USER_ENDPOINTS.signup, data);
       if (!response.ok) {
-        alert("User already exists");
+        alert(this.selectedRole + " already exists");
         throw response;
       }
-      alert('User added Successfully');
+      alert(this.selectedRole + ' added Successfully');
     } catch (e) {
       console.error(e);
       throw e;

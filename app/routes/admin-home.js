@@ -7,6 +7,7 @@ export default class AdminHomeRoute extends Route {
     
     async model() {
         await this.session.checkStatus("admin-home");
+        await this.session.getRoles();
         return this.session.user;
     }
 }
