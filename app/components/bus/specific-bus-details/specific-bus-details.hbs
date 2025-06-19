@@ -10,47 +10,93 @@
       <p><strong>Destination:</strong> {{@model.schedule.destination}}</p>
       <p><strong>Departure:</strong> {{@model.schedule.departureTime}}</p>
       <p><strong>Arrival:</strong> {{@model.schedule.arrivalTime}}</p>
-      <p><strong>Available Seats:</strong>
-        {{@model.schedule.availableSeats}}</p>
     </div>
 
     <div>
-
       <div class="seat-layout-section">
         <h2>Select Your Seat</h2>
-        <div class="seats-grid">
-          {{#each @model.schedule.seatLayout as |seat|}}
-            <span
-              class="seat-item
-                {{if
-                  seat.status
-                  'seat-booked'
-                  (if
-                    (this.isSeatSelected seat) 'seat-selected' 'seat-available'
-                  )
-                }}"
-              {{on "click" (fn this.toggleSeat seat)}}
-            >
-              {{seat.seatNumber}}
-            </span>
-          {{/each}}
-        </div>
-        <div class="seat-legend">
-          <div class="legend-item">
-            <span class="seat-box seat-available"></span>
-            <span>Available</span>
+
+        <div class="seats">
+
+          {{! LOWER DECK }}
+          <div class="seats-grid">
+            <h3>Lower Deck</h3>
+            {{#each
+              (group-by-position @model.schedule.seatLayout "LOWER")
+              as |row|
+            }}
+              <div class="seat-row">
+                {{#each row as |seat|}}
+                  <span
+                    class="seat-item
+                      {{if
+                        (eq seat.status 'BOOKED')
+                        'seat-booked'
+                        (if
+                          (this.isSeatSelected seat)
+                          'seat-selected'
+                          'seat-available'
+                        )
+                      }}"
+                    {{on "click" (fn this.toggleSeat seat)}}
+                  >
+                    {{seat.seatNumber}} <br>
+                    {{seat.seatTypeName}}
+                  </span>
+                {{/each}}
+              </div>
+            {{/each}}
           </div>
-          <div class="legend-item">
-            <span class="seat-box seat-selected"></span>
-            <span>Selected</span>
-          </div>
-          <div class="legend-item">
-            <span class="seat-box seat-booked"></span>
-            <span>Booked</span>
+
+          {{! UPPER DECK }}
+          <div class="seats-grid">
+            <h3>Upper Deck</h3>
+            {{#each
+              (group-by-position @model.schedule.seatLayout "UPPER")
+              as |row|
+            }}
+              <div class="seat-row">
+                {{#each row as |seat|}}
+                  <span
+                    class="seat-item
+                      {{if
+                        (eq seat.status 'BOOKED')
+                        'seat-booked'
+                        (if
+                          (this.isSeatSelected seat)
+                          'seat-selected'
+                          'seat-available'
+                        )
+                      }}"
+                    {{on "click" (fn this.toggleSeat seat)}}
+                  >
+                    {{seat.seatNumber}} <br>
+                    {{seat.seatTypeName}}
+                  </span>
+                {{/each}}
+              </div>
+            {{/each}}
           </div>
         </div>
 
       </div>
+
+
+      <div class="seat-legend">
+        <div class="legend-item">
+          <span class="seat-box seat-available"></span>
+          <span>Available</span>
+        </div>
+        <div class="legend-item">
+          <span class="seat-box seat-selected"></span>
+          <span>Selected</span>
+        </div>
+        <div class="legend-item">
+          <span class="seat-box seat-booked"></span>
+          <span>Booked</span>
+        </div>
+      </div>
+
 
       <div>
         <h3>
@@ -95,7 +141,7 @@
       </div>
 
       <br />
-      
+
       {{#each this.bookingData.selectedSeats as |seat|}}
         <div class="passenger-details-container">
 
@@ -118,7 +164,9 @@
       {{/each}}
 
       <button
-        class="proceed-payment-btn" type="button" {{on "click" this.handlePayment}}
+        class="proceed-payment-btn"
+        type="button"
+        {{on "click" this.handlePayment}}
       >Pay Now</button>
     </div>
 

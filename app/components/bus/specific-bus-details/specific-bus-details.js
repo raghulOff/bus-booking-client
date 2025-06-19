@@ -11,7 +11,8 @@ export default class SpecificBusDetails extends Component {
     @service router;
     @action
     toggleSeat(seat) {
-        if (seat.status === true) return;
+        
+        if (seat.status === 'BOOKED') return;
         const passengerData = {
             seatId: seat.seatId,
             passengerName: '',
@@ -37,7 +38,7 @@ export default class SpecificBusDetails extends Component {
                 ...this.bookingData.passengerDetails,
                 passengerData,
             ];
-            console.log(this.bookingData.passengerDetails);
+            
 
             this.bookingData.payAmount += this.args.model.schedule.price;
         }
@@ -50,7 +51,7 @@ export default class SpecificBusDetails extends Component {
     @action
     handleField(field, event) {
         this.bookingData[field] = event.target.value;
-        console.log(this.bookingData[field]);
+        
     }
 
     @action handleNameAge(field, seatId, event) {

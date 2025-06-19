@@ -32,13 +32,16 @@ export default class SignupController extends Controller {
         body: JSON.stringify({
           username: this.username,
           password: this.password,
-          role: 'USER',
         }),
       });
 
       if (!res.ok) {
         this.error = await res.text();
-        this.userExist = 'User Already Exist';
+        if (res.status === 409) {
+          this.userExist = 'User Already Exist';
+        } else if (res.status === 400) {
+          alert(this.error);
+        }
       } else {
         alert('Register Success');
         this.userExist = '';

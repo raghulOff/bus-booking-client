@@ -44,7 +44,7 @@ strong {
 }
 
 .seats-grid {
-  /* align-items: end; */
+
   display: grid;
   justify-content: center;
   grid-template-columns: 60px 60px 60px 60px;
@@ -153,7 +153,6 @@ strong {
   height: 20px;
   border-radius: 4px;
 
-  /* display: inline-block; */
 }
 
 .seat-available {
@@ -179,12 +178,37 @@ strong {
   border: 1px solid #00adb5;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgb(173 161 161 / 20%);
-
-  /* cursor: pointer; */
 }
 
-
 .passenger-details-container {
-    padding: 20px;
-    margin-bottom: 3px;
+  padding: 20px;
+  margin-bottom: 3px;
+}
+
+.seats-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.seat-row {
+  display: flex;
+  gap: 8px;
+}
+
+.seat-item {
+  color: black;
+  padding: 10px;
+  text-align: center;
+  font-size: small;
+  cursor: pointer;
+  font: bold;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+
+.seat-layout-section .seats {
+  display: flex;
+  justify-content: center;
+  text-align: center;
 }

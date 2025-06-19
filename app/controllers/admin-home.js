@@ -11,7 +11,7 @@ export default class AdminHomeController extends Controller {
   @action
   setActivePanel(panelName) {
     this.activePanel = panelName;
-    console.log(this.activePanel)
+    
   }
 
   @action

@@ -12,7 +12,7 @@ export default class BusService extends Service {
     try {
       const response = await this.apiGet.get(ROUTE_ENDPOINTS.getAllRoutes);
       this.routes = response;
-      console.log(this.routes);
+      
     } catch (error) {
       console.error('Failed to fetch routes', error);
     }

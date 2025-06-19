@@ -12,6 +12,7 @@ export default class BusService extends Service {
     try {
       const response = await this.apiGet.get(BUS_ENDPOINTS.getAllBuses);
       this.buses = response;
+      
     } catch (error) {
       console.error('Failed to fetch buses', error);
     }

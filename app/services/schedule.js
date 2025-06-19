@@ -26,7 +26,6 @@ export default class ScheduleService extends Service {
 
       const result = await this.apiGet.get(url);
       this.scheduleDetails = result;
-      console.log(this.scheduleDetails);
 
     } catch (error) {
       console.error(error);

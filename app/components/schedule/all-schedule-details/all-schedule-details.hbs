@@ -13,7 +13,6 @@
             <th>Bus</th>
             <th>Departure Time</th>
             <th>Arrival Time</th>
-            <th>Available Seats</th>
             <th>Price</th>
             <th>Journey Date</th>
           </tr>
@@ -64,13 +63,6 @@
                 <td>
                   <input
                     type="number"
-                    value={{this.editAvailableSeats}}
-                    {{on "input" (fn this.updateField "editAvailableSeats")}}
-                  />
-                </td>
-                <td>
-                  <input
-                    type="number"
                     value={{this.editPrice}}
                     {{on "input" (fn this.updateField "editPrice")}}
                   />
@@ -103,13 +95,12 @@
                 {{/each}}
                 {{#each this.bus.buses as |bus|}}
                   {{#if (eq bus.busId schedule.busId)}}
-                    <td>{{bus.busNo}}-{{bus.busType}}-{{bus.operatorName}}</td>
+                    <td>{{bus.vehicleNumber}}-{{bus.busType}}-{{bus.operatorName}}</td>
                   {{/if}}
                 {{/each}}
 
                 <td>{{schedule.arrivalTime}}</td>
                 <td>{{schedule.departureTime}}</td>
-                <td>{{schedule.availableSeats}}</td>
                 <td>{{schedule.price}}</td>
                 <td>{{schedule.journeyDate}}</td>
                 <td><button

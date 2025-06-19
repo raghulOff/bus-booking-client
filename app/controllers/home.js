@@ -16,7 +16,7 @@ export default class HomeController extends Controller {
 
   @action
   bookNow(bus) {
-    console.log(bus);
+    
     this.bookingData.selectedSchedule = bus;
     this.router.transitionTo('/book/' + bus.scheduleId)
   }
@@ -24,26 +24,26 @@ export default class HomeController extends Controller {
   @action
   updateDate(event) {
     this.date = event.target.value;
-    console.log(this.date);
+    
     localStorage.setItem('doj', this.date);
   }
   @action
   setFromLocation(event) {
     this.fromLocation = event.target.value;
-    console.log(this.fromLocation);
+    
     localStorage.setItem('fromLocation', this.fromLocation);
   }
 
   @action
   setToLocation(event) {
     this.toLocation = event.target.value;
-    console.log(this.toLocation);
+    
     localStorage.setItem('toLocation', this.toLocation);
   }
 
   @action
   async searchBus() {
-    console.log('came');
+    
     await fetch(config.apiBaseUrl + BUS_ENDPOINTS.getSearchBuses, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -63,7 +63,7 @@ export default class HomeController extends Controller {
       })
       .then((data) => {
         this.busdetails = data;
-        console.log(this.busdetails);
+        
       });
   }
 }

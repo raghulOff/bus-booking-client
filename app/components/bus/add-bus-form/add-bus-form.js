@@ -47,7 +47,7 @@ export default class AddBusFormComponent extends Component {
       const response = await this.apiPost.post(BUS_ENDPOINTS.addBus, data);
       let result = await response.text();
       alert(result);
-      console.log(result);
+      
       if (!response.ok) {
         throw response;
       }

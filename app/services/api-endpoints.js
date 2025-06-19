@@ -35,6 +35,7 @@ export const USER_ENDPOINTS = {
     login: '/user/login',
     logout: '/user/logout',
     getRoles: '/user/get-roles',
+    addUser: '/user/add-user',
 }
 
 export const GENERAL_ENDPOINTS = {
@@ -44,10 +45,10 @@ export const GENERAL_ENDPOINTS = {
 }
 
 export const BOOKING_ENDPOINTS = {
-    bookSeats: '/book/book-seats',
-    getUserBookings: '/book/get-user-bookings',
+    bookSeats: '/bookings/book-seats',
+    getUserBookings: '/bookings/get-user-bookings',
 }
 
 export const CANCEL_ENDPOINTS = {
-    cancelTicket: '/book/cancel-passenger-ticket',
+    cancelTicket: '/bookings/cancel-passenger-ticket',
 }

@@ -36,14 +36,13 @@ export default class LoginController extends Controller {
         })
       }).then (res => {
         if (!res.ok) {
-          alert("login has failed")
+          alert("Username or password is incorrect.")
         } else {
-          alert("logged in")
+          alert("Login Success!")
           return res.json();
-          
         }
       }).then (data => {
-        console.log(data);
+        
         if (data.roleId === 1) {
           this.router.transitionTo('admin-home');
         } else if (data.roleId === 2) {

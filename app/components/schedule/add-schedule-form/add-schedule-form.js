@@ -8,7 +8,6 @@ export default class AddScheduleFormComponent extends Component {
   @tracked busId = null;
   @tracked deptime = null;
   @tracked arrivaltime = null;
-  @tracked av_seats = null;
   @tracked price = null;
   @tracked journeydate = null;
 
@@ -26,7 +25,7 @@ export default class AddScheduleFormComponent extends Component {
   @action
   updateField(field, event) {
     this[field] = event.target.value;
-    console.log(this[field]);
+    
   }
 
   @service apiGet;
@@ -43,7 +42,7 @@ export default class AddScheduleFormComponent extends Component {
     } catch (error) {
       console.error('Failed to fetch routes', error);
     }
-    console.log(this.routes);
+    
   }
 
   async loadBuses() {
@@ -53,7 +52,7 @@ export default class AddScheduleFormComponent extends Component {
     } catch (error) {
       console.error('Failed to fetch routes', error);
     }
-    console.log(this.buses);
+    
   }
 
   @action
@@ -65,9 +64,8 @@ export default class AddScheduleFormComponent extends Component {
       arrivalTime: this.arrivaltime,
       price: this.price,
       journeyDate: this.journeydate,
-      availableSeats: this.av_seats,
     };
-    console.log(data);
+    
     try {
       const response = await this.apiPost.post(
         SCHEDULE_ENDPOINTS.addSchedule,
@@ -81,7 +79,7 @@ export default class AddScheduleFormComponent extends Component {
       this.schedule.fetchSchedules();
 
     } catch (error) {
-      console.log(error);
+    
       throw error;
     }
   }
