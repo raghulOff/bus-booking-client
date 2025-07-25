@@ -42,16 +42,24 @@
               <td>{{passenger.seatNumber}}</td>
               <td>{{passenger.passengerName}}</td>
               <td>{{passenger.passengerAge}}</td>
-              <td
-                {{on "click" (fn this.cancelTicket passenger.seatId)}}
-
-                class={{if
-                  (eq passenger.status "BOOKED")
-                  "cancel-ticket"
-                  "cancelled-ticket"
-                }}
-              >
-                {{if (eq passenger.status "BOOKED") "Cancel" "Cancelled"}}</td>
+              {{#if (eq passenger.status_id 1)}}
+                <td
+                  {{on
+                    "click"
+                    (fn this.cancelTicket passenger.scheduledSeatId)
+                  }}
+                  class="cancel-ticket"
+                >
+                  Cancel</td>
+              {{else if (eq passenger.status_id 2)}}
+                <td class="cancelled-ticket">
+                  Cancelled
+                </td>
+              {{else}}
+                <td class="cancelled-ticket">
+                  Schedule cancelled by admin. Amount will be refunded
+                </td>
+              {{/if}}
 
             </tr>
           {{/each}}

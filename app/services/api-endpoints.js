@@ -1,19 +1,21 @@
 // ENDPOINTS FILE
 
-
-
 export const BUS_ENDPOINTS = {
     getSearchBuses: '/bus/get-buses',
     getAllBuses: '/bus/get-all-buses',
     addBus: '/bus/add-bus',
     deleteBus: '/bus/delete-bus',
-    updateBus: '/bus/update-bus'
+    updateBus: '/bus/update-bus',
+    seatType: '/bus/seat-type',
 }
 
 export const CITY_ENDPOINTS = {
     getAllCities: '/city/get-cities',
     addCity: '/city/add-city',
-    getLocationPoints: '/location/get-schedule-locations/'
+    getLocationPoints: '/location/get-schedule-locations',
+    deleteCity: '/city/delete-city',
+    addLocation: '/location/add-location',
+    getCityLocations: '/location',
 };
 
 
@@ -27,7 +29,9 @@ export const ROUTE_ENDPOINTS = {
 export const SCHEDULE_ENDPOINTS = {
     addSchedule: '/schedule/add-schedule',
     getAllSchedules: '/schedule/get-schedules',
-    getScheduleDetails: '/schedule/:id/details'
+    getScheduleDetails: '/schedule/:id/details',
+    updateSchedule: '/schedule/update',
+    cancelSchedule: '/schedule',
 }
 
 export const USER_ENDPOINTS = {

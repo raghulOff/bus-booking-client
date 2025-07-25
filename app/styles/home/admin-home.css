@@ -8,6 +8,7 @@
   width: 220px;
   background-color: #222831;
   color: white;
+  margin-top: 50px;
   padding: 20px;
 }
 
@@ -29,6 +30,7 @@
 }
 
 .content {
+  margin-top: 50px;
   color: white;
   flex: 1;
   padding: 30px;

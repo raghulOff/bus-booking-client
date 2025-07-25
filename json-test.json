@@ -1,0 +1,138 @@
+{
+  "busPhotos": null,
+  "travelPolicy": [
+    {
+      "icon": null,
+      "title": "Do I need to buy a ticket for my child?",
+      "subTitle": "Please purchase a ticket for children above the age of 6."
+    },
+    {
+      "icon": null,
+      "title": "Will I be charged for excess luggage?",
+      "subTitle": "Yes , excess luggage is chargeable. You are allowed to carry 2 pieces of luggage, 15 Kgs each. Allowing luggages packed in carton boxes is at the discretion of the bus partner."
+    },
+    {
+      "icon": null,
+      "title": "Can I travel with my Pet?",
+      "subTitle": "Travelling with your pets in the bus is not permitted."
+    },
+    {
+      "icon": null,
+      "title": "Is there any Alcohol\/liquor policy?",
+      "subTitle": "Yes. Alcohol\/liquor consumption and Carrying it inside the bus is prohibited. Bus partners reserves the right to deboard any passenger with inappropriate behaviour or does not comply with the policy. Refunds will not be processed in such cases."
+    },
+    {
+      "icon": null,
+      "title": "Will the bus wait if the boarding time has passed?",
+      "subTitle": "Bus partner do not wait for the passengers beyond the departure time. There is no refund policy if the passenger missed the bus for arriving late at the boarding point."
+    }
+  ],
+  "assuredInfoImg": "https:\/\/static.abhibus.com\/img\/assured_partner\/assured_in_bus_details_v2.png",
+  "assuredPartnerInfo": [
+    {
+      "imgUrl": "https:\/\/static.abhibus.com\/img\/assured_partner\/icon_bus_cancelled.png",
+      "title": "150% Refund if bus cancelled",
+      "desc": "Get extra 50% refund in case your bus doesn\u2019t arrive!"
+    },
+    {
+      "imgUrl": "https:\/\/static.abhibus.com\/img\/assured_partner\/icon_bus_delayed.png",
+      "title": "100% Refund if Bus delayed",
+      "desc": "We dont like you waiting.If the bus is late, you get 100% Back."
+    },
+    {
+      "imgUrl": "https:\/\/static.abhibus.com\/img\/assured_partner\/icon_staff_misbehaves.png",
+      "title": "100% Refund if staff misbehaves",
+      "desc": "Our Assured bus partners train their staff to treat Abhibus travellers special. Incase of any misbehaviour you get 100% Refund."
+    },
+    {
+      "imgUrl": "https:\/\/static.abhibus.com\/img\/assured_partner\/icon_quality_mismatch.png",
+      "title": "100% Refund if bus Quality mismatches",
+      "desc": "You were promised A\/C bus and Non AC bus arrived, such mismatch will be compensated with 100% Refund.\n *All benefits subject to applicable T&C"
+    }
+  ],
+  "galleryUrlPrefix": "https:\/\/static.abhibus.com\/busgallery\/",
+  "bookingTips": null,
+  "busMeta": {
+    "title": "Last 7 days - Bus Running Status",
+    "subTitle": "Buses aged around 2 year(s) are most likely used for this service",
+    "busConditionItems": [
+      {
+        "dateTime": "04 Jul",
+        "doj": "2025-07-04",
+        "dateTimeSubTitle": "Date Of Journey",
+        "busNo": "To Be Assigned",
+        "busConditionValue": "1",
+        "busConditionTitle": "New Bus",
+        "busConditionSubTitle": "Most likely 2 Yr Old Bus",
+        "isNumberAssigned": "0"
+      },
+      {
+        "dateTime": "02 Jul",
+        "doj": "2025-07-02",
+        "dateTimeSubTitle": "",
+        "busNo": "KA51AJ3033",
+        "busConditionValue": "1",
+        "busConditionTitle": "New Bus",
+        "busConditionSubTitle": "2 Yr Old Bus",
+        "isNumberAssigned": "1"
+      },
+      {
+        "dateTime": "01 Jul",
+        "doj": "2025-07-01",
+        "dateTimeSubTitle": "",
+        "busNo": "KA51AJ3029",
+        "busConditionValue": "1",
+        "busConditionTitle": "New Bus",
+        "busConditionSubTitle": "2 Yr Old Bus",
+        "isNumberAssigned": "1"
+      },
+      {
+        "dateTime": "30 Jun",
+        "doj": "2025-06-30",
+        "dateTimeSubTitle": "",
+        "busNo": "KA51AJ3033",
+        "busConditionValue": "1",
+        "busConditionTitle": "New Bus",
+        "busConditionSubTitle": "2 Yr Old Bus",
+        "isNumberAssigned": "1"
+      },
+      {
+        "dateTime": "29 Jun",
+        "doj": "2025-06-29",
+        "dateTimeSubTitle": "",
+        "busNo": "KA51AJ3029",
+        "busConditionValue": "1",
+        "busConditionTitle": "New Bus",
+        "busConditionSubTitle": "2 Yr Old Bus",
+        "isNumberAssigned": "1"
+      },
+      {
+        "dateTime": "28 Jun",
+        "doj": "2025-06-28",
+        "dateTimeSubTitle": "",
+        "busNo": "No Data",
+        "busConditionValue": "1",
+        "busConditionTitle": "New Bus",
+        "busConditionSubTitle": "2 Yr Old Bus",
+        "isNumberAssigned": "0"
+      },
+      {
+        "dateTime": "27 Jun",
+        "doj": "2025-06-27",
+        "dateTimeSubTitle": "",
+        "busNo": "KA51AJ3033",
+        "busConditionValue": "1",
+        "busConditionTitle": "New Bus",
+        "busConditionSubTitle": "2 Yr Old Bus",
+        "isNumberAssigned": "1"
+      }
+    ]
+  },
+  "freeTicketOffer": {
+    "titleOperatorName": "Find [operator name] buses & proceed to book",
+    "titleOfferDetail": "Unlock eligibility for Free Ticket after booking",
+    "titleRemainigCount": "Complete [Remaining Trip Count] trip(s) with [Operator name]",
+    "titleAmountWorth": "Enjoy your Free ticket! worth up to [amount worth]",
+    "freeTktUnlockedTxt": "Congrats! Free Ticket has been unlocked"
+  }
+}

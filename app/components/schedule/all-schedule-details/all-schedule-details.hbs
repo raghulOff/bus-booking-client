@@ -1,6 +1,3 @@
-{{!-- // THIS COMPONENT IS STILL UNDER DEVELOPMENT --}}
-
-
 <html>
   <head></head>
   <body>
@@ -8,6 +5,7 @@
       <table>
         <thead>
           <tr>
+            <th>Schedule Status</th>
             <th>Schedule Id</th>
             <th>Route</th>
             <th>Bus</th>
@@ -20,27 +18,35 @@
         <tbody>
           {{#each this.schedule.schedules as |schedule|}}
             <tr>
+              <td>
+                {{#if (eq schedule.statusId 2)}}
+                  Cancelled
+                {{else}}
+                  Active
+                {{/if}}
+
+              </td>
               <td>{{schedule.scheduleId}}</td>
               {{#if (eq this.currentScheduleId schedule.scheduleId)}}
                 <td>
-                  <select {{on "change" (fn this.updateField "editRouteId")}}>
+                  <select
+                    value={{this.editRouteId}}
+                    {{on "change" (fn this.updateField "editRouteId")}}
+                  >
                     {{#each this.route.routes as |route|}}
-                      <option
-                        selected={{eq this.editRouteId route.routeId}}
-                        value={{route.routeId}}
-                      >{{route.source}}
+                      <option value={{route.routeId}}>{{route.source}}
                         -{{route.destination}}-{{route.distanceKm}}
                       </option>
                     {{/each}}
                   </select>
                 </td>
                 <td>
-                  <select {{on "change" (fn this.updateField "editBusId")}}>
+                  <select
+                    value={{this.editBusId}}
+                    {{on "change" (fn this.updateField "editBusId")}}
+                  >
                     {{#each this.bus.buses as |bus|}}
-                      <option
-                        selected={{eq this.editBusId bus.busId}}
-                        value={{bus.busId}}
-                      >{{bus.vehicleNumber}}
+                      <option value={{bus.busId}}>{{bus.vehicleNumber}}
                         -{{bus.busType}}-{{bus.operatorName}}
                       </option>
                     {{/each}}
@@ -77,14 +83,14 @@
                 <td>
                   <button
                     type="button"
-                    {{on "click" (fn this.saveRoute schedule.scheduleId)}}
+                    {{on "click" (fn this.saveSchedule schedule.scheduleId)}}
                   >Save</button>
                 </td>
                 <td>
                   <button
                     type="button"
-                    {{on "click" this.cancelSchedule}}
-                  >Cancel</button>
+                    {{on "click" this.cancelEditSchedule}}
+                  >Cancel Edit</button>
                 </td>
               {{else}}
                 {{#each this.route.routes as |route|}}
@@ -95,7 +101,8 @@
                 {{/each}}
                 {{#each this.bus.buses as |bus|}}
                   {{#if (eq bus.busId schedule.busId)}}
-                    <td>{{bus.vehicleNumber}}-{{bus.busType}}-{{bus.operatorName}}</td>
+                    <td
+                    >{{bus.vehicleNumber}}-{{bus.busType}}-{{bus.operatorName}}</td>
                   {{/if}}
                 {{/each}}
 
@@ -107,10 +114,17 @@
                     type="button"
                     {{on "click" (fn this.editSchedule schedule)}}
                   >Edit</button></td>
-                <td><button
-                    type="button"
-                    {{on "click" (fn this.deleteSchedule schedule.scheduleId)}}
-                  >Delete</button></td>
+                <td>
+                  {{#if (eq schedule.statusId 1)}}
+                    <button
+                      type="button"
+                      {{on
+                        "click"
+                        (fn this.cancelSchedule schedule.scheduleId)
+                      }}
+                    >Cancel Schedule</button>
+                  {{/if}}
+                </td>
               {{/if}}
             </tr>
           {{/each}}

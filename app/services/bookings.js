@@ -11,7 +11,6 @@ export default class BookingsService extends Service {
     this.bookings = await this.apiGet.get(
       BOOKING_ENDPOINTS.getUserBookings + '/' + this.session.user.userId,
     );
-    
-
+    console.log(this.bookings);
   }
 }

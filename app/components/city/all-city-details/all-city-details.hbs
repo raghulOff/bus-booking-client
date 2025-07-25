@@ -1,0 +1,29 @@
+<html>
+  <body>
+    <table>
+      <thead>
+        <tr>
+          <th>City Id</th>
+          <th>City Name</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each this.city.cities as |city|}}
+          <tr>
+
+            <td>
+              {{city.cityId}}
+            </td>
+            <td>
+              {{city.cityName}}
+            </td>
+            <td>
+                <button type="button" {{on "click" (fn this.deleteCity city.cityId)}}>Delete</button>
+            </td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </body>
+</html>

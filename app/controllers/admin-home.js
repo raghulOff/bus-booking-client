@@ -6,7 +6,7 @@ import { tracked } from '@glimmer/tracking';
 export default class AdminHomeController extends Controller {
   @service router;
   @service session;
-  @tracked activePanel = '';
+  @tracked activePanel = 'schedule';
 
   @action
   setActivePanel(panelName) {

@@ -10,9 +10,9 @@ export default class AddRouteFormComponent extends Component {
   @service apiPost;
   @tracked source = '';
   @tracked destination = '';
-  @tracked distance = null;
-  @tracked timeTravel = null;
+  @tracked distance;
   @service route;
+  @tracked timeTravel;
   @action handleInput(event) {
     const { name, value } = event.target;
     this[name] = value;

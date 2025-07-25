@@ -42,13 +42,12 @@ export default class AllRouteDetailsComponent extends Component {
         ROUTE_ENDPOINTS.deleteRoute + '/' + routeId,
       );
       let result = await response.text();
+      alert(result);
       if (!response.ok) {
-        alert('Delete unsuccessful');
         throw response;
       }
       this.route.routes = this.route.routes.filter((r) => r.routeId !== routeId);
 
-      alert(result);
     } catch (error) {
       console.error(error);
     }
@@ -67,11 +66,11 @@ export default class AllRouteDetailsComponent extends Component {
         const response = await this.apiPut.put(ROUTE_ENDPOINTS.updateRoute, data);
         let result = await response.text();
         this.currentRouteId = null;
+        alert(result);
         if (!response.ok) {
             throw response;
         }
         this.route.fetchRoutes();
-        alert(result);
 
     } catch (error) {
         console.error(error);

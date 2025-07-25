@@ -15,8 +15,6 @@ export default class BookBusRoute extends Route {
         await this.city.getLocationPoints(params.scheduleId, 1);
         await this.city.getLocationPoints(params.scheduleId, 0);
 
-        
-
         return {
             schedule: this.schedule.scheduleDetails,
             boardingPoints: this.bookingData.boardingPoints,

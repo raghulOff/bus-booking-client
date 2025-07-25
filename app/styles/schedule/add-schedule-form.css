@@ -1,0 +1,29 @@
+
+.location-points{
+    padding: 5px;    
+    /* background-color: gray; */
+    margin: 1px;
+}
+
+.location-points-box {
+    flex-wrap: wrap;
+    display: flex;
+}
+
+.location-points:hover {
+    background-color: white;
+    color: black;
+    cursor: pointer;
+}
+
+
+.location-points.selected {
+    background-color: aqua;
+    color: black;
+}
+
+
+.location-points.not-selected {
+    background-color: gray;
+    color: white;
+}

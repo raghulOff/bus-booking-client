@@ -32,7 +32,7 @@ export default class LoginController extends Controller {
         credentials: 'include',
         body: JSON.stringify({
           username: this.username,
-          password: this.password
+          password: this.password,
         })
       }).then (res => {
         if (!res.ok) {
@@ -42,7 +42,10 @@ export default class LoginController extends Controller {
           return res.json();
         }
       }).then (data => {
+        if (!data) return;
         
+        this.username = '';
+        this.password = '';
         if (data.roleId === 1) {
           this.router.transitionTo('admin-home');
         } else if (data.roleId === 2) {
@@ -55,5 +58,6 @@ export default class LoginController extends Controller {
     } catch (e) {
       this.error = 'Login failed';
     }
+
   }
 }

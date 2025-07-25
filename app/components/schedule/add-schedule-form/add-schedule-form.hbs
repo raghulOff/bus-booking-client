@@ -10,7 +10,7 @@
             type="date"
             {{on "input" this.handleInput}}
           /></li>
-        
+
         <li>Route:
           <select {{on "change" (fn this.updateField "routeId")}}>
             <option disabled selected value>select-route</option>
@@ -21,8 +21,8 @@
             {{/each}}
           </select>
         </li>
-        
-        <li>Bus: 
+
+        <li>Bus:
           <select {{on "change" (fn this.updateField "busId")}}>
             <option disabled selected value>select-bus</option>
             {{#each this.buses as |bus|}}
@@ -50,7 +50,41 @@
             type="number"
             {{on "input" this.handleInput}}
           /></li>
-        <li><button type="button" {{on "click" this.addNewSchedule}}>Add</button></li>
+        <li>
+          Add Boarding Points:
+          <div class="location-points-box">
+            {{#each this.boardingLocations as |loc|}}
+              <div
+                {{on
+                  "click"
+                  (fn this.handleBoardDropLocations "BOARD" loc.locationId)
+                }}
+              >
+                <h4 class={{if (check-location-added this.editBoardingLocationIds loc.locationId) "location-points selected" "location-points not-selected"}}>{{loc.locationName}}</h4>
+                
+              </div>
+            {{/each}}
+          </div>
+        </li>
+        <li>
+          Add Dropping Points:
+          <div class="location-points-box">
+            {{#each this.droppingLocations as |loc|}}
+              <div
+                {{on
+                  "click"
+                  (fn this.handleBoardDropLocations "DROP" loc.locationId)
+                }}
+              >
+                <h4 class="location-points {{if (check-location-added this.editDroppingLocationIds loc.locationId) "selected" "not-selected"}}">{{loc.locationName}}</h4>
+              </div>
+            {{/each}}
+          </div>
+        </li>
+        <li><button
+            type="button"
+            {{on "click" this.addNewSchedule}}
+          >Add</button></li>
       </ul>
     </div>
   </body>

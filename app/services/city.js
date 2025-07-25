@@ -7,11 +7,12 @@ export default class CityService extends Service {
   @service apiGet;
   @service bookingData;
 
+
+
   async fetchCities() {
     try {
       const response = await this.apiGet.get(CITY_ENDPOINTS.getAllCities);
       this.cities = response;
-      
     } catch (error) {
       console.error('Failed to fetch cities', error);
     }
@@ -20,17 +21,18 @@ export default class CityService extends Service {
   async getLocationPoints(scheduleId, type) {
     try {
       const response = await this.apiGet.get(
-        CITY_ENDPOINTS.getLocationPoints + `${scheduleId}/${type}`,
+        CITY_ENDPOINTS.getLocationPoints + `/${scheduleId}/${type}`,
       );
       if (type === 1) {
         this.bookingData.boardingPoints = response;
-        
+
       } else {
         this.bookingData.droppingPoints = response;
-        
+
       }
     } catch (error) {
       console.error(error);
     }
   }
+
 }

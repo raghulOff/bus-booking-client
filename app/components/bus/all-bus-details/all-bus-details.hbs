@@ -1,3 +1,5 @@
+****UNDER DEVELOPMENT****
+
 <html>
   <head></head>
   <body>
@@ -9,7 +11,6 @@
             <th>Bus Number</th>
             <th>Bus Type</th>
             <th>Operator Name</th>
-            <th>Total Seats</th>
             <th>Actions</th>
           </tr>
         </thead>
@@ -49,11 +50,6 @@
                     value={{this.editOperatorName}}
                     {{on "input" (fn this.updateField "editOperatorName")}}
                   /></td>
-                <td><input
-                    type="number"
-                    value={{this.editTotalSeats}}
-                    {{on "input" (fn this.updateField "editTotalSeats")}}
-                  /></td>
                 <td>
                   <button
                     type="button"
@@ -65,10 +61,10 @@
                   >Cancel</button>
                 </td>
               {{else}}
+
                 <td>{{bus.vehicleNumber}}</td>
                 <td>{{bus.busType}}</td>
                 <td>{{bus.operatorName}}</td>
-                <td>{{bus.totalSeats}}</td>
                 <td>
                   <button
                     type="button"

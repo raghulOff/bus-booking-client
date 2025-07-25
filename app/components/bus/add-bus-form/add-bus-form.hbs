@@ -1,30 +1,136 @@
 <html>
   <head></head>
   <body>
+    <div class="add-bus-form-container">
+      <h3>Add Bus Form</h3>
+      <div class="bus-details-form-container">
+        <div>
+          Vehicle Number:
+          <input
+            type="text"
+            {{on "input" (fn this.updateField "vehicleNumber")}}
+          />
+        </div>
+        <div>
+          Operator Name:
+          <input
+            type="text"
+            {{on "input" (fn this.updateField "operatorName")}}
+          />
+        </div>
+        <div>
+          Bus Type:
+          <input type="text" {{on "input" (fn this.updateField "busType")}} />
+        </div>
+        <div>
+          Total Columns:
+          <input
+            type="number"
+            value={{this.totalColumns}}
+            {{on "input" this.handleColumns}}
+          />
+        </div>
+        <div>
+          Select bus deck layers:
+          <br />
+          <input
+            type="checkbox"
+            {{on "click" this.handleDeckExist}}
+            name="lower"
+          />
+          Lower
+          <br />
+          <input
+            type="checkbox"
+            {{on "click" this.handleDeckExist}}
+            name="upper"
+          />
+          Upper
+        </div>
+        <div>
+          <h4>Select the seat type and click on any seat in the grid to alter
+            the type.</h4>
+          <select
+            {{on "change" (fn this.updateSeatType "editSeatTypeId")}}
+            value={{this.editSeatTypeId}}
+          >
+            {{#each this.bus.seatTypes as |seat|}}
+              <option value={{seat.seatTypeId}}>
+                {{seat.seatTypeName}}
+              </option>
+            {{/each}}
 
-    <div class="bus-form-container">
-
-      <br /><br />
-      <ul>
-        <h1>Add New Bus</h1>
-        <li>Bus Number: <input type="text" {{on "input" this.addBusNo}} /></li>
-        <li>Bus Type:
-          <select {{on "change" this.changeBusType}}>
-            <option disabled selected value>select type</option>
-            <option value="AC Sleeper">AC Sleeper</option>
-            <option value="Non-AC Sleeper">Non - AC Sleeper</option>
-            <option value="AC Seater">AC Seater</option>
-            <option value="Non-AC Seater">Non - AC Seater</option>
           </select>
-        </li>
-        <li>Total Seats:
-          <input type="number" {{on "input" this.addTotalSeats}} /></li>
-        <li>Operator Name:
-          <input type="text" {{on "input" this.addOperatorName}} /></li>
-        <button type="button" {{on "click" this.addNewBus}}>Add</button>
-      </ul>
+
+        </div>
+      </div>
+      <div class="seat-layout-form-container">
+        <div>
+          {{#if this.lowerDeck}}
+            
+            {{#each this.lowerSeats as |col|}}
+              <div class="seat-column-box">
+
+                <input
+                  value={{get-col-value this.lowerRowInputs col.colNumber}}
+                  class="total-rows-col"
+                  {{on "input" (fn this.handleNoOfRows col.colNumber "LOWER")}}
+                  type="number"
+                  placeholder="Enter rows"
+                />
+                {{#each col.row_seats as |seat|}}
+                  <div
+                    class="seat"
+                    {{on "click" (fn this.changeSeatType seat)}}
+                  >
+                    <h5>R:{{seat.row_number}}
+                      C:{{seat.col_number}}
+                      <br />
+                      {{seat.seat_type_name}}
+                    </h5>
+                  </div>
+                {{/each}}
+              </div>
+            {{/each}}
+          {{/if}}
+        </div>
+
+        <div>
+          {{#if this.upperDeck}}
+            
+            {{#each this.upperSeats as |col|}}
+              <div class="seat-column-box">
+
+                <input
+                  value={{get-col-value this.upperRowInputs col.colNumber}}
+                  class="total-rows-col"
+                  {{on "input" (fn this.handleNoOfRows col.colNumber "UPPER")}}
+                  type="number"
+                  placeholder="Enter rows"
+                />
+                {{#each col.row_seats as |seat|}}
+                  <div
+                    class="seat"
+                    {{on "click" (fn this.changeSeatType seat)}}
+                  >
+                    <h5>R:{{seat.row_number}}
+                      C:{{seat.col_number}}
+                      <br />
+                      {{seat.seat_type_name}}
+                    </h5>
+                  </div>
+                {{/each}}
+              </div>
+            {{/each}}
+          {{/if}}
+        </div>
+      </div>
+
+      <div>
+        <button type="button" {{on "click" this.addBus}}>Add bus with seats</button>
+      </div>
+
     </div>
 
   </body>
 </html>
-

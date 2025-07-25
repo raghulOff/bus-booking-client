@@ -13,6 +13,5 @@ Router.map(function () {
   this.route('admin-home');
   this.route('dev-home');
   this.route('book-bus', { path: '/book/:scheduleId' });
-  this.route('payment', { path: '/book/:scheduleId/payment'});
   this.route('bookings');
 });

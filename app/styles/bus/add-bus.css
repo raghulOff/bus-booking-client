@@ -1,0 +1,30 @@
+.seat-layout-form-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: nowrap;
+    
+}
+
+.seat-layout-form-container div {
+    display: flex;
+}
+
+.total-rows-col {
+    width: 80px;
+}
+
+.seat-column-box {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+
+
+.seat-column-box .seat {
+    padding: 10px;
+    margin: 3px;
+    text-align: center;
+    cursor: pointer;
+    background-color: gray;
+}

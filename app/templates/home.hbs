@@ -60,11 +60,14 @@
             <p><strong>Type:</strong> {{bus.busType}}</p>
             <p><strong>Departure:</strong> {{bus.departureTime}}</p>
             <p><strong>Arrival:</strong> {{bus.arrivalTime}}</p>
-            <p><strong>Available Seats:</strong> {{bus.availableSeats}}</p>
             <p><strong>Price: </strong>₹{{bus.price}}</p>
             <p><strong>Operator Name:</strong> {{bus.operatorName}}</p>
             <p><strong>Distance Km:</strong> {{bus.distanceKm}}</p>
-            <button class="bus-card-book-btn" type="button" {{on "click" (fn this.bookNow bus)}}>Book</button>
+            <button
+              class="bus-card-book-btn"
+              type="button"
+              {{on "click" (fn this.bookNow bus)}}
+            >Book</button>
           </div>
         {{/each}}
       </div>

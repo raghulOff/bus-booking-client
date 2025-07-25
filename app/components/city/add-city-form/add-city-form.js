@@ -2,11 +2,12 @@ import Component from '@ember/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { service } from '@ember/service';
-import { CITY_ENDPOINTS } from '../../services/api-endpoints';
+import { CITY_ENDPOINTS } from '../../../services/api-endpoints';
 
 
 export default class AddCityFormComponent extends Component {
   @tracked cityName = '';
+  @service city;
   @action handleInput(event) {
     const {name, value} = event.target;
     this[name] = value;
@@ -30,6 +31,7 @@ export default class AddCityFormComponent extends Component {
       if (!response.ok) {
         throw response
       }
+      this.city.fetchCities();
     } catch (error) {
       console.error('error adding city: ', error);
     }

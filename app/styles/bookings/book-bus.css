@@ -1,13 +1,14 @@
+
 .book-bus-container {
-  margin: 4rem 20px;
+  margin-top: 4rem;
   padding: 2rem;
 
   /* background-color: #393e46; */
   max-width: 100%;
   border-radius: 20px;
-  box-shadow: 0 4px 6px rgb(0 0 0 / 50%);
   color: #eee;
-  display: grid;
+
+  /* display: grid; */
   text-align: center;
 }
 
@@ -19,7 +20,11 @@
 
 .bus-info {
   display: flex;
+
+  /* position: inherit; */
+  flex-wrap: wrap;
   justify-content: space-around;
+  
 }
 
 .bus-info p {
@@ -35,49 +40,18 @@ strong {
 
 .seat-layout-section {
   margin-top: 2rem;
-  text-align: center;
+  height: 50%;
+  align-items: center;  
 }
+
+
 
 .seat-layout-section h2 {
   margin-bottom: 1rem;
   color: #00adb5;
 }
 
-.seats-grid {
-
-  display: grid;
-  justify-content: center;
-  grid-template-columns: 60px 60px 60px 60px;
-  gap: 10px;
-  background-color: #222831;
-  padding: 20px;
-  border-radius: 10px;
-}
-
-.seat-row {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-}
-
-.seat-item {
-  width: 50px;
-  height: 50px;
-  background-color: #00adb5;
-  color: white;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  font-weight: bold;
-  transition: transform 0.2s;
-}
-
-.seat-item:hover {
-  transform: scale(1.1);
-}
-
+/* 
 .seat-selected {
   background-color: green;
 }
@@ -85,7 +59,7 @@ strong {
 .seat-booked {
   background-color: #555;
   cursor: not-allowed;
-}
+} */
 
 .boarding-dropping {
   display: flex;
@@ -155,18 +129,6 @@ strong {
 
 }
 
-.seat-available {
-  background-color: #00adb5;
-}
-
-.seat-selected {
-  background-color: green;
-}
-
-.seat-box .seat-booked {
-  background-color: #393e46;
-  cursor: default;
-}
 
 .passenger-name-input,
 .passenger-age-input {
@@ -196,19 +158,17 @@ strong {
   gap: 8px;
 }
 
-.seat-item {
-  color: black;
-  padding: 10px;
-  text-align: center;
-  font-size: small;
-  cursor: pointer;
-  font: bold;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 
-}
 
-.seat-layout-section .seats {
+
+
+
+.deck-titles {
   display: flex;
-  justify-content: center;
-  text-align: center;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 2rem;
 }
+
+
+

@@ -1,6 +1,6 @@
 import Service, { service } from '@ember/service';
 import { tracked } from '@glimmer/tracking';
-import { SCHEDULE_ENDPOINTS } from './api-endpoints';
+import { CITY_ENDPOINTS, SCHEDULE_ENDPOINTS } from './api-endpoints';
 
 export default class ScheduleService extends Service {
   @tracked schedules = [];
@@ -31,4 +31,20 @@ export default class ScheduleService extends Service {
       console.error(error);
     }
   }
+
+  async getCityLocations(cityId) {
+    try {
+      const result = await this.apiGet.get(
+        `${CITY_ENDPOINTS.getCityLocations}/${cityId}`,
+      );
+      
+      return result;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+
+
+
 }

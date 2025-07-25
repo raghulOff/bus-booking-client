@@ -1,7 +1,7 @@
 <div class="book-bus-container">
 
   {{#if @model.schedule}}
-    {{! <h1 class="book-title">Book Your Bus Seat</h1> }}
+
     <div class="bus-info">
       <p><strong>Operator Name:</strong> {{@model.schedule.operatorName}}</p>
       <p><strong>Bus Type:</strong> {{@model.schedule.busType}}</p>
@@ -16,71 +16,13 @@
       <div class="seat-layout-section">
         <h2>Select Your Seat</h2>
 
-        <div class="seats">
-
-          {{! LOWER DECK }}
-          <div class="seats-grid">
-            <h3>Lower Deck</h3>
-            {{#each
-              (group-by-position @model.schedule.seatLayout "LOWER")
-              as |row|
-            }}
-              <div class="seat-row">
-                {{#each row as |seat|}}
-                  <span
-                    class="seat-item
-                      {{if
-                        (eq seat.status 'BOOKED')
-                        'seat-booked'
-                        (if
-                          (this.isSeatSelected seat)
-                          'seat-selected'
-                          'seat-available'
-                        )
-                      }}"
-                    {{on "click" (fn this.toggleSeat seat)}}
-                  >
-                    {{seat.seatNumber}} <br>
-                    {{seat.seatTypeName}}
-                  </span>
-                {{/each}}
-              </div>
-            {{/each}}
-          </div>
-
-          {{! UPPER DECK }}
-          <div class="seats-grid">
-            <h3>Upper Deck</h3>
-            {{#each
-              (group-by-position @model.schedule.seatLayout "UPPER")
-              as |row|
-            }}
-              <div class="seat-row">
-                {{#each row as |seat|}}
-                  <span
-                    class="seat-item
-                      {{if
-                        (eq seat.status 'BOOKED')
-                        'seat-booked'
-                        (if
-                          (this.isSeatSelected seat)
-                          'seat-selected'
-                          'seat-available'
-                        )
-                      }}"
-                    {{on "click" (fn this.toggleSeat seat)}}
-                  >
-                    {{seat.seatNumber}} <br>
-                    {{seat.seatTypeName}}
-                  </span>
-                {{/each}}
-              </div>
-            {{/each}}
-          </div>
-        </div>
+        {{bus/seat-layout/seat-layout}}
 
       </div>
+      <br /><br />
 
+    </div>
+    <div>
 
       <div class="seat-legend">
         <div class="legend-item">
@@ -96,7 +38,6 @@
           <span>Booked</span>
         </div>
       </div>
-
 
       <div>
         <h3>
@@ -150,14 +91,20 @@
             class="passenger-name-input"
             type="text"
             placeholder="Passenger Name"
-            {{on "input" (fn this.handleNameAge "passengerName" seat.seatId)}}
+            {{on
+              "input"
+              (fn this.handleNameAge "passengerName" seat.scheduledSeatId)
+            }}
           />
           <input
             max="100"
             class="passenger-age-input"
             type="number"
             placeholder="Age"
-            {{on "input" (fn this.handleNameAge "passengerAge" seat.seatId)}}
+            {{on
+              "input"
+              (fn this.handleNameAge "passengerAge" seat.scheduledSeatId)
+            }}
           />
         </div>
 
