@@ -1,0 +1,39 @@
+.add-user-container {
+  color: white;
+  padding: 40px;
+  border-radius: 10px;
+  font-family: "Segoe UI", sans-serif;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.add-user-form-title {
+  font-size: 22px;
+  font-weight: bold;
+  color: #00adb5;
+  margin-bottom: 20px;
+}
+
+.add-user-button {
+  background-color: #00adb5;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.add-user-button:hover {
+  transform: scale(1.1);
+  background-color: #00bbc5;
+}
+
+.add-user-form input,
+.add-user-form select {
+  background-color: #393e46;
+  color: #eeeeee;
+  border: 1px solid #00adb5;
+  border-radius: 6px;
+  padding: 6px ;
+  width: 20rem !important;
+}

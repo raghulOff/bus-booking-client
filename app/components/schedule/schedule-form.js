@@ -4,7 +4,7 @@ import { action } from '@ember/object';
 
 export default class ScheduleFormComponent extends Component {
     @tracked showScheduleList = false;
-    @tracked showScheduleForm = true;
+    @tracked showScheduleForm = false;
 
     @action
     toggleScheduleList() {

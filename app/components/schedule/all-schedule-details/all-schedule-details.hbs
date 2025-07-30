@@ -1,8 +1,8 @@
 <html>
   <head></head>
   <body>
-    <div>
-      <table>
+    <div class="schedule-details-container">
+      <table class="schedule-details-table">
         <thead>
           <tr>
             <th>Schedule Status</th>
@@ -13,6 +13,7 @@
             <th>Arrival Time</th>
             <th>Price</th>
             <th>Journey Date</th>
+            <th>Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -30,6 +31,7 @@
               {{#if (eq this.currentScheduleId schedule.scheduleId)}}
                 <td>
                   <select
+                  class="admin-panel-input"
                     value={{this.editRouteId}}
                     {{on "change" (fn this.updateField "editRouteId")}}
                   >
@@ -42,6 +44,7 @@
                 </td>
                 <td>
                   <select
+                  class="admin-panel-input"
                     value={{this.editBusId}}
                     {{on "change" (fn this.updateField "editBusId")}}
                   >
@@ -54,6 +57,7 @@
                 </td>
                 <td>
                   <input
+                  class="admin-panel-input"
                     type="datetime-local"
                     value={{this.editArrivalTime}}
                     {{on "input" (fn this.updateField "editArrivalTime")}}
@@ -61,6 +65,7 @@
                 </td>
                 <td>
                   <input
+                  class="admin-panel-input"
                     type="datetime-local"
                     value={{this.editDepartureTime}}
                     {{on "input" (fn this.updateField "editDepartureTime")}}
@@ -68,6 +73,7 @@
                 </td>
                 <td>
                   <input
+                  class="admin-panel-input"
                     type="number"
                     value={{this.editPrice}}
                     {{on "input" (fn this.updateField "editPrice")}}
@@ -75,6 +81,7 @@
                 </td>
                 <td>
                   <input
+                  class="admin-panel-input"
                     type="date"
                     value={{this.editJourneyDate}}
                     {{on "input" (fn this.updateField "editJourneyDate")}}
@@ -82,15 +89,16 @@
                 </td>
                 <td>
                   <button
+                  class="admin-panel-button"
                     type="button"
                     {{on "click" (fn this.saveSchedule schedule.scheduleId)}}
                   >Save</button>
-                </td>
-                <td>
+              
                   <button
                     type="button"
+                    class="admin-panel-button"
                     {{on "click" this.cancelEditSchedule}}
-                  >Cancel Edit</button>
+                  >Revert</button>
                 </td>
               {{else}}
                 {{#each this.route.routes as |route|}}
@@ -112,17 +120,19 @@
                 <td>{{schedule.journeyDate}}</td>
                 <td><button
                     type="button"
+                    class="admin-panel-button"
                     {{on "click" (fn this.editSchedule schedule)}}
-                  >Edit</button></td>
-                <td>
+                  >Edit</button>
+
                   {{#if (eq schedule.statusId 1)}}
                     <button
+                    class="admin-panel-button"
                       type="button"
                       {{on
                         "click"
                         (fn this.cancelSchedule schedule.scheduleId)
                       }}
-                    >Cancel Schedule</button>
+                    >Cancel</button>
                   {{/if}}
                 </td>
               {{/if}}

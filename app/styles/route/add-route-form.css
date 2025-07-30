@@ -1,0 +1,42 @@
+.add-route-form-container ul {
+  list-style: none;
+
+}
+
+.add-route-title {
+  color: #00adb5;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+
+.add-route-form-container li {
+    padding: 10px;
+}
+
+
+.add-route-form-container input,
+.add-route-form-container select {
+  background-color: #393e46;
+  color: #eeeeee;
+  border: 1px solid #00adb5;
+  border-radius: 6px;
+  padding: 6px;
+  width: 20rem;
+}
+
+.add-route-form-container button {
+  background-color: #00adb5;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  margin-right: 6px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.add-route-form-container button:hover {
+  transform: scale(1.1);
+  background-color: #00bbc5;
+}

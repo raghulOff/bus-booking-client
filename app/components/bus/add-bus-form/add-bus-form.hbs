@@ -2,11 +2,12 @@
   <head></head>
   <body>
     <div class="add-bus-form-container">
-      <h3>Add Bus Form</h3>
+      <h2>Add Bus Form</h2> <br>
       <div class="bus-details-form-container">
         <div>
           Vehicle Number:
           <input
+            
             type="text"
             {{on "input" (fn this.updateField "vehicleNumber")}}
           />
@@ -14,26 +15,34 @@
         <div>
           Operator Name:
           <input
+            
             type="text"
             {{on "input" (fn this.updateField "operatorName")}}
           />
         </div>
         <div>
           Bus Type:
-          <input type="text" {{on "input" (fn this.updateField "busType")}} />
+          <input
+            type="text"
+            
+            {{on "input" (fn this.updateField "busType")}}
+          />
         </div>
         <div>
           Total Columns:
           <input
+            
             type="number"
             value={{this.totalColumns}}
             {{on "input" this.handleColumns}}
           />
         </div>
+        
         <div>
           Select bus deck layers:
           <br />
           <input
+            class="deck-checkbox"
             type="checkbox"
             {{on "click" this.handleDeckExist}}
             name="lower"
@@ -41,6 +50,7 @@
           Lower
           <br />
           <input
+            class="deck-checkbox"
             type="checkbox"
             {{on "click" this.handleDeckExist}}
             name="upper"
@@ -51,6 +61,7 @@
           <h4>Select the seat type and click on any seat in the grid to alter
             the type.</h4>
           <select
+            
             {{on "change" (fn this.updateSeatType "editSeatTypeId")}}
             value={{this.editSeatTypeId}}
           >
@@ -65,9 +76,9 @@
         </div>
       </div>
       <div class="seat-layout-form-container">
-        <div>
+        <div class="deck-separation-section">
           {{#if this.lowerDeck}}
-            
+
             {{#each this.lowerSeats as |col|}}
               <div class="seat-column-box">
 
@@ -95,9 +106,9 @@
           {{/if}}
         </div>
 
-        <div>
+        <div class="deck-separation-section">
           {{#if this.upperDeck}}
-            
+
             {{#each this.upperSeats as |col|}}
               <div class="seat-column-box">
 
@@ -127,7 +138,11 @@
       </div>
 
       <div>
-        <button type="button" {{on "click" this.addBus}}>Add bus with seats</button>
+        <button
+          
+          type="button"
+          {{on "click" this.addBus}}
+        >Add bus with seats</button>
       </div>
 
     </div>

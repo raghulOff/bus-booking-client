@@ -13,10 +13,6 @@ export default class AddCityFormComponent extends Component {
     this[name] = value;
   }
 
-
-
-
-
   @service apiPost
 
   @action

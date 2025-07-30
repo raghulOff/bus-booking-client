@@ -71,9 +71,6 @@ export default class AllScheduleDetailsComponent extends Component {
         alert('Cancellation unsuccessful');
         throw response;
       }
-      // this.schedule.schedules = this.schedule.schedules.filter(
-      //   (s) => s.scheduleId !== scheduleId,
-      // );
 
       alert(result);
       this.schedule.fetchSchedules();

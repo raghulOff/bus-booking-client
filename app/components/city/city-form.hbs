@@ -2,9 +2,8 @@
   <head>
   </head>
   <body>
-    <div>
+    <div class="city-form-container">
       <div>
-        <br />
         <button type="button" {{on "click" this.toggleCityList}}>
           {{if this.showCityList "⬆ Hide All Cities" "⬇ View All Cities"}}
         </button>
@@ -26,6 +25,7 @@
 
         {{/if}}
       </div>
+      <br />
       <div>
         <button type="button" {{on "click" this.toggleLocationForm}}>
           {{if this.showLocationForm "⬆ Hide Form" "⬇ Add New Location"}}

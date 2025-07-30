@@ -36,11 +36,10 @@ export default class AddLocationFormComponent extends Component {
         locationName: this.editLocationName,
     };
     const response = await this.apiPost.post(CITY_ENDPOINTS.addLocation, data);
-    if (response.status === 400) {
-        alert("Invalid request");
-        return;
-    }
     const result = await response.text();
     alert(result);
+    if (response.status === 400) {
+        return;
+    }
   }
 }

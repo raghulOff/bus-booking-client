@@ -1,8 +1,8 @@
 <html>
   <head></head>
   <body>
-    <div>
-        <table>
+    <div class="route-details-container">
+        <table class="route-table">
             <thead>
                 <tr>
                     <th>Route Id</th>
@@ -10,6 +10,7 @@
                     <th>Destination</th>
                     <th>Distance KM</th>
                     <th>Estimated Time</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -41,8 +42,7 @@
                     </td>
                     <td>
                         <button type="button" {{on "click" (fn this.saveRoute route.routeId)}}>Save</button>
-                    </td>
-                    <td>
+                    
                         <button type="button" {{ on "click" this.cancelRoute }}>Cancel</button>
                     </td>
                 {{else}}
@@ -50,8 +50,8 @@
                     <td>{{route.destination}}</td>
                     <td>{{route.distanceKm}}</td>
                     <td>{{route.estimatedTime}}</td>
-                    <td><button type="button" {{on "click" (fn this.editRoute route)}}>Edit</button></td>
-                    <td><button type="button" {{on "click" (fn this.deleteRoute route.routeId)}}>Delete</button></td>
+                    <td><button type="button" {{on "click" (fn this.editRoute route)}}>Edit</button>
+                    <button type="button" {{on "click" (fn this.deleteRoute route.routeId)}}>Delete</button></td>
                 {{/if}}
                 </tr>
                 {{/each}}

@@ -1,0 +1,39 @@
+.add-city-form-container {
+  color: white;
+  padding: 30px;
+  border-radius: 10px;
+  max-width: 1000px;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.add-city-form-container ul {
+    list-style: none;
+}
+.add-city-form-container li {
+    padding: 10px;
+}
+
+.add-city-form-container input {
+  background-color: #393e46;
+  color: #eeeeee;
+  border: 1px solid #00adb5;
+  border-radius: 6px;
+  padding: 6px;
+  width: 20rem;
+}
+
+.add-city-form-container button {
+  background-color: #00adb5;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  margin-right: 6px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.add-city-form-container button:hover {
+  transform: scale(1.1);
+  background-color: #00bbc5;
+}

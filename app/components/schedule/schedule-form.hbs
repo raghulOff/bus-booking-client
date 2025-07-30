@@ -1,19 +1,20 @@
 <html>
     <head></head>
     <body>
-        <div>
+        <div class="schedule-form-container">
             {{!-- all schedule details --}}
             <div>
-                <button type="button" {{on "click" this.toggleScheduleList}}>
+                <button class="admin-panel-button" type="button" {{on "click" this.toggleScheduleList}}>
                     {{if this.showScheduleList "Hide All Schedules" "Show All Schedules"}}
                 </button>
                 {{#if this.showScheduleList}}
                     {{schedule/all-schedule-details/all-schedule-details}}
                 {{/if}}
             </div>
+            <br>
             {{!-- add schedule form --}}
             <div>
-                <button type="button" {{on "click" this.toggleScheduleForm}}>
+                <button class="admin-panel-button" type="button" {{on "click" this.toggleScheduleForm}}>
                     {{if this.showScheduleForm "Hide Form" "Add Schedule"}}
                 </button>
                 {{#if this.showScheduleForm}}

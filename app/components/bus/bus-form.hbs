@@ -1,11 +1,9 @@
 <html>
   <head></head>
   <body>
-    <div>
-      <div>
-        
-        <br>
-        <button type="button" {{on "click" this.toggleBusList}}>
+    <div class="bus-form-container">
+      <div class="bus-form section">
+        <button class="admin-panel-button" type="button" {{on "click" this.toggleBusList}}>
           {{if this.showBusList "⬆ Hide All Buses" "⬇ View All Buses"}}
         </button>
 
@@ -14,9 +12,9 @@
         {{/if}}
       </div>
       <br />
-      <div>
+      <div class="bus-form section">
 
-        <button type="button" {{on "click" this.toggleBusForm}}>
+        <button class="admin-panel-button" type="button" {{on "click" this.toggleBusForm}}>
           {{if this.showBusForm "⬆ Hide Form" "⬇ Add New Bus"}}
         </button>
 

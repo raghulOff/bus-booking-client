@@ -1,7 +1,6 @@
 .admin-panel {
   display: flex;
   height: 100vh;
-  background-color: #f4f4f4;
 }
 
 .sidebar {
@@ -34,6 +33,6 @@
   color: white;
   flex: 1;
   padding: 30px;
-  background-color: #000;
+  
   
 }

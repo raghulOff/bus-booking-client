@@ -1,14 +1,9 @@
-
 .book-bus-container {
   margin-top: 4rem;
   padding: 2rem;
-
-  /* background-color: #393e46; */
   max-width: 100%;
   border-radius: 20px;
   color: #eee;
-
-  /* display: grid; */
   text-align: center;
 }
 
@@ -21,10 +16,8 @@
 .bus-info {
   display: flex;
 
-  /* position: inherit; */
   flex-wrap: wrap;
   justify-content: space-around;
-  
 }
 
 .bus-info p {
@@ -41,25 +34,13 @@ strong {
 .seat-layout-section {
   margin-top: 2rem;
   height: 50%;
-  align-items: center;  
+  align-items: center;
 }
-
-
 
 .seat-layout-section h2 {
   margin-bottom: 1rem;
   color: #00adb5;
 }
-
-/* 
-.seat-selected {
-  background-color: green;
-}
-
-.seat-booked {
-  background-color: #555;
-  cursor: not-allowed;
-} */
 
 .boarding-dropping {
   display: flex;
@@ -126,9 +107,7 @@ strong {
   width: 20px;
   height: 20px;
   border-radius: 4px;
-
 }
-
 
 .passenger-name-input,
 .passenger-age-input {
@@ -158,17 +137,9 @@ strong {
   gap: 8px;
 }
 
-
-
-
-
-
 .deck-titles {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   margin: 2rem;
 }
-
-
-

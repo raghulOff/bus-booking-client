@@ -217,13 +217,15 @@ async addBus() {
     totalColumns: this.totalColumns
   };
 
+  
   const response = await this.apiPost.post(BUS_ENDPOINTS.addBus, data);
+
+  this.bus.fetchBuses();
+
   const result = await response.text();
   alert(result);
 
 
-
-  // console.log('Generated bus JSON:', JSON.stringify(data, null, 2));
 }
 
 }

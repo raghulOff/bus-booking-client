@@ -1,0 +1,31 @@
+.add-location-form-container input,
+.add-location-form-container select {
+  background-color: #393e46;
+  color: #eeeeee;
+  border: 1px solid #00adb5;
+  border-radius: 6px;
+  padding: 6px;
+  width: 20rem;
+}
+
+.add-location-form-container button {
+  background-color: #00adb5;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  margin-right: 6px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.add-location-form-container button:hover {
+  transform: scale(1.1);
+  background-color: #00bbc5;
+}
+.add-location-form-container ul {
+    list-style: none;
+}
+.add-location-form-container li {
+    padding: 10px;
+}

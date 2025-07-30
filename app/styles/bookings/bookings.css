@@ -60,12 +60,10 @@
 
 h2 {
   color: #00adb5;
-  margin-bottom: 2rem;
 }
 
 
 .cancel-ticket {
-    /* background-color: rgb(69, 12, 12) !important; */
     background-color: #741e1e !important;
 }
 
@@ -73,8 +71,6 @@ h2 {
 .cancel-ticket:hover {
     background-color: rgb(206 47 47) !important;
     cursor: pointer;
-
-    /* color: black; */
 }
 
 .cancelled-ticket {

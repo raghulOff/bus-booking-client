@@ -11,6 +11,17 @@
 @import url('user/user.css');
 @import url('bus/add-bus.css');
 @import url('schedule/add-schedule-form.css');
+@import url('bus/bus-form.css');
+@import url('user/add-user.css');
+@import url('schedule/all-schedule-details.css');
+@import url('schedule/schedule-form.css');
+@import url('route/route-form.css');
+@import url('city/city-form.css');
+@import url('route/add-route-form.css');
+@import url('route/all-route-details.css');
+@import url('city/add-city-form.css');
+@import url('city/all-city-details.css');
+@import url('city/add-location-form.css');
 
 * {
     margin: 0;

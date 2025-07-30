@@ -1,29 +1,76 @@
+.add-schedule-form-container input,
+.add-schedule-form-container select {
+  background-color: #393e46;
+  color: #eeeeee;
+  border: 1px solid #00adb5;
+  border-radius: 6px;
+  padding: 6px;
+  width: 20rem;
+}
 
-.location-points{
-    padding: 5px;    
-    /* background-color: gray; */
-    margin: 1px;
+.add-schedule-form-container button {
+  background-color: #00adb5;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  margin-right: 6px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.add-schedule-form-container button:hover {
+  transform: scale(1.1);
+  background-color: #00bbc5;
+}
+
+.add-schedule-title {
+  font-size: 22px;
+  font-weight: bold;
+  color: #00adb5;
+  margin-top: 20px;
+}
+
+.add-schedule-form-container ul {
+  list-style: none;
+}
+.add-schedule-form-container li {
+  padding: 10px;
+}
+
+.add-schedule-form-container {
+
+  justify-content: space-around;
 }
 
 .location-points-box {
-    flex-wrap: wrap;
-    display: flex;
+  display: flex;
+  justify-content: start;
+}
+
+.location-points.selected {
+  background-color: green;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  margin-right: 6px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.location-points.not-selected {
+  background-color: gray;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  margin-right: 6px;
+  border-radius: 6px;
+  cursor: pointer;
+  width: min-content;
+  transition: transform 0.2s ease;
 }
 
 .location-points:hover {
-    background-color: white;
-    color: black;
-    cursor: pointer;
-}
-
-
-.location-points.selected {
-    background-color: aqua;
-    color: black;
-}
-
-
-.location-points.not-selected {
-    background-color: gray;
-    color: white;
+  transform: scale(1.1);
 }

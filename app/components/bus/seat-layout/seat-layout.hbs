@@ -22,7 +22,7 @@
               <div
                 class="seat-item
                   {{if
-                    (eq seat.status 't')
+                    (eq seat.status "BOOKED")
                     'seat-booked'
                     (if
                       (this.isSeatSelected seat)
@@ -70,7 +70,7 @@
               <div
                 class="seat-item
                   {{if
-                    (eq seat.status 't')
+                    (eq seat.status "BOOKED")
                     'seat-booked'
                     (if
                       (this.isSeatSelected seat)

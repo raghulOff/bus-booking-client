@@ -1,5 +1,3 @@
-
-
 <html>
   <head></head>
   <body>
@@ -9,28 +7,41 @@
         <br />
         <label>
           <span>Username</span>
-          <Input class="user-input" @value={{this.username}} />
+          <Input
+            @value={{this.username}}
+          />
         </label>
         <br /><br />
         <label>
           <span>Password</span>
-          <Input class="pass-input" @type="password" @value={{this.password}} />
+          <Input
+            @type="password"
+            @value={{this.password}}
+          />
         </label>
         <br /><br />
-        <label>Choose role
-          <select class="user-select-option" {{on "change" this.changeRole}}>
+        <label>
+          <span>
+            Choose role
+
+          </span>
+          <select
+            class="user-select-option"
+            {{on "change" this.changeRole}}
+          >
             <option selected disabled value>Select</option>
             {{#each this.session.roles as |role|}}
-            <option value={{role.roleName}}>{{role.roleName}}</option>
+              <option value={{role.roleName}}>{{role.roleName}}</option>
             {{/each}}
           </select>
         </label>
         <br /><br />
-        <button class="add-user-button" type="submit" disabled={{this.disableSubmit}}>Create</button>
+        <button
+          class="add-user-button"
+          type="submit"
+          disabled={{this.disableSubmit}}
+        >Create</button>
       </form>
     </div>
   </body>
 </html>
-
-
-
