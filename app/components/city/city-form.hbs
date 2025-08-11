@@ -1,43 +1,36 @@
-<html lang="en">
-  <head>
-  </head>
-  <body>
-    <div class="city-form-container">
-      <div>
-        <button type="button" {{on "click" this.toggleCityList}}>
-          {{if this.showCityList "⬆ Hide All Cities" "⬇ View All Cities"}}
-        </button>
+<div class="city-form-container">
+  <div>
+    <button type="button" {{on "click" this.toggleCityList}}>
+      {{if this.showCityList "⬆ Hide All Cities" "⬇ View All Cities"}}
+    </button>
 
-        {{#if this.showCityList}}
-          {{city/all-city-details/all-city-details}}
+    {{#if this.showCityList}}
+      {{city/all-city-details/all-city-details}}
 
-        {{/if}}
-      </div>
-      <br />
-      <div>
+    {{/if}}
+  </div>
+  <br />
+  <div>
 
-        <button type="button" {{on "click" this.toggleCityForm}}>
-          {{if this.showCityForm "⬆ Hide Form" "⬇ Add New City"}}
-        </button>
+    <button type="button" {{on "click" this.toggleCityForm}}>
+      {{if this.showCityForm "⬆ Hide Form" "⬇ Add New City"}}
+    </button>
 
-        {{#if this.showCityForm}}
-          {{city/add-city-form/add-city-form}}
+    {{#if this.showCityForm}}
+      {{city/add-city-form/add-city-form}}
 
-        {{/if}}
-      </div>
-      <br />
-      <div>
-        <button type="button" {{on "click" this.toggleLocationForm}}>
-          {{if this.showLocationForm "⬆ Hide Form" "⬇ Add New Location"}}
-        </button>
+    {{/if}}
+  </div>
+  <br />
+  <div>
+    <button type="button" {{on "click" this.toggleLocationForm}}>
+      {{if this.showLocationForm "⬆ Hide Form" "⬇ Add New Location"}}
+    </button>
 
-        {{#if this.showLocationForm}}
-          {{city/add-location-form/add-location-form}}
+    {{#if this.showLocationForm}}
+      {{city/add-location-form/add-location-form}}
 
-        {{/if}}
-      </div>
+    {{/if}}
+  </div>
 
-    </div>
-
-  </body>
-</html>
+</div>

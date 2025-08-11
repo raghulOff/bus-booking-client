@@ -15,3 +15,6 @@ Router.map(function () {
   this.route('book-bus', { path: '/book/:scheduleId' });
   this.route('bookings');
 });
+
+
+// how to another route (page)

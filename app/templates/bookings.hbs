@@ -55,6 +55,10 @@
                 <td class="cancelled-ticket">
                   Cancelled
                 </td>
+              {{else if (eq passenger.status_id 5)}}
+                <td class="cancelled-ticket">
+                  TRIP COMPLETED
+                </td>
               {{else}}
                 <td class="cancelled-ticket">
                   Schedule cancelled by admin. Amount will be refunded

@@ -22,10 +22,10 @@ export default class AddRouteFormComponent extends Component {
   async addNewRoute() {
     try {
       const data = {
-        source: this.source,
-        destination: this.destination,
         distanceKm: this.distance,
         estimatedTime: this.timeTravel,
+        sourceCityId: this.allCities.find(city => city.cityName === this.source)?.cityId,
+        destinationCityId: this.allCities.find(city => city.cityName === this.destination)?.cityId
       };
 
       const response = await this.apiPost.post(ROUTE_ENDPOINTS.addRoute, data);

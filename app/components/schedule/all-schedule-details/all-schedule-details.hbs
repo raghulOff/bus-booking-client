@@ -1,147 +1,131 @@
-<html>
-  <head></head>
-  <body>
-    <div class="schedule-details-container">
-      <table class="schedule-details-table">
-        <thead>
-          <tr>
-            <th>Schedule Status</th>
-            <th>Schedule Id</th>
-            <th>Route</th>
-            <th>Bus</th>
-            <th>Departure Time</th>
-            <th>Arrival Time</th>
-            <th>Price</th>
-            <th>Journey Date</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {{#each this.schedule.schedules as |schedule|}}
-            <tr>
-              <td>
-                {{#if (eq schedule.statusId 2)}}
-                  Cancelled
-                {{else}}
-                  Active
-                {{/if}}
+<div class="schedule-details-container">
+  <table class="schedule-details-table">
+    <thead>
+      <tr>
+        <th>Schedule Status</th>
+        <th>Schedule Id</th>
+        <th>Route</th>
+        <th>Bus</th>
+        <th>Departure Time</th>
+        <th>Arrival Time</th>
+        <th>Price</th>
+        <th>Journey Date</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each this.schedule.schedules as |schedule|}}
+        <tr>
+          <td>
+            {{#if (eq schedule.statusId 2)}}
+              Cancelled
+            {{else if (eq schedule.statusId 4)}}
+              Completed
+            {{else if (eq schedule.statusId 1)}}
+              Active
+            {{/if}}
 
-              </td>
-              <td>{{schedule.scheduleId}}</td>
-              {{#if (eq this.currentScheduleId schedule.scheduleId)}}
-                <td>
-                  <select
-                  class="admin-panel-input"
-                    value={{this.editRouteId}}
-                    {{on "change" (fn this.updateField "editRouteId")}}
-                  >
-                    {{#each this.route.routes as |route|}}
-                      <option value={{route.routeId}}>{{route.source}}
-                        -{{route.destination}}-{{route.distanceKm}}
-                      </option>
-                    {{/each}}
-                  </select>
-                </td>
-                <td>
-                  <select
-                  class="admin-panel-input"
-                    value={{this.editBusId}}
-                    {{on "change" (fn this.updateField "editBusId")}}
-                  >
-                    {{#each this.bus.buses as |bus|}}
-                      <option value={{bus.busId}}>{{bus.vehicleNumber}}
-                        -{{bus.busType}}-{{bus.operatorName}}
-                      </option>
-                    {{/each}}
-                  </select>
-                </td>
-                <td>
-                  <input
-                  class="admin-panel-input"
-                    type="datetime-local"
-                    value={{this.editArrivalTime}}
-                    {{on "input" (fn this.updateField "editArrivalTime")}}
-                  />
-                </td>
-                <td>
-                  <input
-                  class="admin-panel-input"
-                    type="datetime-local"
-                    value={{this.editDepartureTime}}
-                    {{on "input" (fn this.updateField "editDepartureTime")}}
-                  />
-                </td>
-                <td>
-                  <input
-                  class="admin-panel-input"
-                    type="number"
-                    value={{this.editPrice}}
-                    {{on "input" (fn this.updateField "editPrice")}}
-                  />
-                </td>
-                <td>
-                  <input
-                  class="admin-panel-input"
-                    type="date"
-                    value={{this.editJourneyDate}}
-                    {{on "input" (fn this.updateField "editJourneyDate")}}
-                  />
-                </td>
-                <td>
-                  <button
-                  class="admin-panel-button"
-                    type="button"
-                    {{on "click" (fn this.saveSchedule schedule.scheduleId)}}
-                  >Save</button>
-              
-                  <button
-                    type="button"
-                    class="admin-panel-button"
-                    {{on "click" this.cancelEditSchedule}}
-                  >Revert</button>
-                </td>
-              {{else}}
+          </td>
+          <td>{{schedule.scheduleId}}</td>
+          {{#if (eq this.currentScheduleId schedule.scheduleId)}}
+            <td>
+              <select
+                value={{this.editRouteId}}
+                {{on "change" (fn this.updateField "editRouteId")}}
+              >
                 {{#each this.route.routes as |route|}}
-                  {{#if (eq route.routeId schedule.routeId)}}
-                    <td
-                    >{{route.source}}-{{route.destination}}-{{route.distanceKm}}</td>
-                  {{/if}}
+                  <option value={{route.routeId}}>{{route.source}}
+                    -{{route.destination}}-{{route.distanceKm}}
+                  </option>
                 {{/each}}
+              </select>
+            </td>
+            <td>
+              <select
+                value={{this.editBusId}}
+                {{on "change" (fn this.updateField "editBusId")}}
+              >
                 {{#each this.bus.buses as |bus|}}
-                  {{#if (eq bus.busId schedule.busId)}}
-                    <td
-                    >{{bus.vehicleNumber}}-{{bus.busType}}-{{bus.operatorName}}</td>
-                  {{/if}}
+                  <option value={{bus.busId}}>{{bus.vehicleNumber}}
+                    -{{bus.busType}}-{{bus.operatorName}}
+                  </option>
                 {{/each}}
+              </select>
+            </td>
+            <td>
+              <input
+                type="datetime-local"
+                value={{this.editArrivalTime}}
+                {{on "input" (fn this.updateField "editArrivalTime")}}
+              />
+            </td>
+            <td>
+              <input
+                type="datetime-local"
+                value={{this.editDepartureTime}}
+                {{on "input" (fn this.updateField "editDepartureTime")}}
+              />
+            </td>
+            <td>
+              <input
+                type="number"
+                value={{this.editPrice}}
+                {{on "input" (fn this.updateField "editPrice")}}
+              />
+            </td>
+            <td>
+              <input
+                type="date"
+                value={{this.editJourneyDate}}
+                {{on "input" (fn this.updateField "editJourneyDate")}}
+              />
+            </td>
+            <td>
+              <button
+                type="button"
+                {{on "click" (fn this.saveSchedule schedule.scheduleId)}}
+              >Save</button>
 
-                <td>{{schedule.arrivalTime}}</td>
-                <td>{{schedule.departureTime}}</td>
-                <td>{{schedule.price}}</td>
-                <td>{{schedule.journeyDate}}</td>
-                <td><button
-                    type="button"
-                    class="admin-panel-button"
-                    {{on "click" (fn this.editSchedule schedule)}}
-                  >Edit</button>
-
-                  {{#if (eq schedule.statusId 1)}}
-                    <button
-                    class="admin-panel-button"
-                      type="button"
-                      {{on
-                        "click"
-                        (fn this.cancelSchedule schedule.scheduleId)
-                      }}
-                    >Cancel</button>
-                  {{/if}}
-                </td>
+              <button
+                type="button"
+                {{on "click" this.cancelEditSchedule}}
+              >Revert</button>
+            </td>
+          {{else}}
+            {{#each this.route.routes as |route|}}
+              {{#if (eq route.routeId schedule.routeId)}}
+                <td
+                >{{route.source}}-{{route.destination}}-{{route.distanceKm}}</td>
               {{/if}}
-            </tr>
-          {{/each}}
+            {{/each}}
+            {{#each this.bus.buses as |bus|}}
+              {{#if (eq bus.busId schedule.busId)}}
+                <td
+                >{{bus.vehicleNumber}}-{{bus.busType}}-{{bus.operatorName}}</td>
+              {{/if}}
+            {{/each}}
 
-        </tbody>
-      </table>
+            <td>{{schedule.departureTime}}</td>
+            <td>{{schedule.arrivalTime}}</td>
+            <td>{{schedule.price}}</td>
+            <td>{{schedule.journeyDate}}</td>
+            <td><button
+                type="button"
+                {{on "click" (fn this.editSchedule schedule)}}
+              >Edit</button>
 
-    </div>
-  </body>
-</html>
+              {{#if (eq schedule.statusId 1)}}
+                <button
+                  type="button"
+                  {{on "click" (fn this.cancelSchedule schedule.scheduleId)}}
+                >Cancel</button>
+              {{/if}}
+            </td>
+          {{/if}}
+        </tr>
+      {{/each}}
+
+    </tbody>
+  </table>
+
+</div>

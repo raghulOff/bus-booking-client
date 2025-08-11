@@ -1,27 +1,30 @@
-<html>
-  <head></head>
-  <body>
-    <div class="bus-form-container">
-      <div class="bus-form section">
-        <button class="admin-panel-button" type="button" {{on "click" this.toggleBusList}}>
-          {{if this.showBusList "⬆ Hide All Buses" "⬇ View All Buses"}}
-        </button>
+<div class="bus-form-container">
+  <div class="bus-form section">
+    <button
+      class="admin-panel-button"
+      type="button"
+      {{on "click" this.toggleBusList}}
+    >
+      {{if this.showBusList "⬆ Hide All Buses" "⬇ View All Buses"}}
+    </button>
 
-        {{#if this.showBusList}}
-          {{bus/all-bus-details/all-bus-details}}
-        {{/if}}
-      </div>
-      <br />
-      <div class="bus-form section">
+    {{#if this.showBusList}}
+      {{bus/all-bus-details/all-bus-details}}
+    {{/if}}
+  </div>
+  <br />
+  <div class="bus-form section">
 
-        <button class="admin-panel-button" type="button" {{on "click" this.toggleBusForm}}>
-          {{if this.showBusForm "⬆ Hide Form" "⬇ Add New Bus"}}
-        </button>
+    <button
+      class="admin-panel-button"
+      type="button"
+      {{on "click" this.toggleBusForm}}
+    >
+      {{if this.showBusForm "⬆ Hide Form" "⬇ Add New Bus"}}
+    </button>
 
-        {{#if this.showBusForm}}
-          {{bus/add-bus-form/add-bus-form}}
-        {{/if}}
-      </div>
-    </div>
-  </body>
-</html>
+    {{#if this.showBusForm}}
+      {{bus/add-bus-form/add-bus-form}}
+    {{/if}}
+  </div>
+</div>

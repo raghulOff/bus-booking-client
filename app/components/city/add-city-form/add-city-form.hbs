@@ -1,13 +1,8 @@
-<html>
-  <head></head>
-  <body>
-    <div class="add-city-form-container">
-      <ul>
-        <h2>Add New City</h2>
-        <li>City Name: <input type="text" name="cityName" {{on "input" this.handleInput}}/></li>
-        <button type="button" {{on "click" this.addNewCity}}>Add</button>
-      </ul>
-    </div>
-
-  </body>
-</html>
+<div class="add-city-form-container">
+  <ul>
+    <h2>Add New City</h2>
+    <li>City Name:
+      <input type="text" name="cityName" {{on "input" this.handleInput}} /></li>
+    <button type="button" {{on "click" this.addNewCity}}>Add</button>
+  </ul>
+</div>

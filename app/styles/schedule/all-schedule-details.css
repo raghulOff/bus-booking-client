@@ -19,7 +19,6 @@
 .schedule-details-table thead {
   background-color: #393e46;
   color: #00adb5;
-  text-transform: uppercase;
 }
 
 .schedule-details-table tr:hover {

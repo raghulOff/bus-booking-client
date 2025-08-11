@@ -1,47 +1,34 @@
-<html>
-  <head></head>
-  <body>
-    <div class="add-user-container">
-      <form class="add-user-form" {{on "submit" this.onSubmit}}>
-        <div class="add-user-form-title">Add User Form</div>
-        <br />
-        <label>
-          <span>Username</span>
-          <Input
-            @value={{this.username}}
-          />
-        </label>
-        <br /><br />
-        <label>
-          <span>Password</span>
-          <Input
-            @type="password"
-            @value={{this.password}}
-          />
-        </label>
-        <br /><br />
-        <label>
-          <span>
-            Choose role
+<div class="add-user-container">
+  <form class="add-user-form" {{on "submit" this.onSubmit}}>
+    <div class="add-user-form-title">Add User Form</div>
+    <br />
+    <label>
+      <span>Username</span>
+      <Input @value={{this.username}} />
+    </label>
+    <br /><br />
+    <label>
+      <span>Password</span>
+      <Input @type="password" @value={{this.password}} />
+    </label>
+    <br /><br />
+    <label>
+      <span>
+        Choose role
 
-          </span>
-          <select
-            class="user-select-option"
-            {{on "change" this.changeRole}}
-          >
-            <option selected disabled value>Select</option>
-            {{#each this.session.roles as |role|}}
-              <option value={{role.roleName}}>{{role.roleName}}</option>
-            {{/each}}
-          </select>
-        </label>
-        <br /><br />
-        <button
-          class="add-user-button"
-          type="submit"
-          disabled={{this.disableSubmit}}
-        >Create</button>
-      </form>
-    </div>
-  </body>
-</html>
+      </span>
+      <select class="user-select-option" {{on "change" this.changeRole}}>
+        <option selected disabled value>Select</option>
+        {{#each this.session.roles as |role|}}
+          <option value={{role.roleName}}>{{role.roleName}}</option>
+        {{/each}}
+      </select>
+    </label>
+    <br /><br />
+    <button
+      class="add-user-button"
+      type="submit"
+      disabled={{this.disableSubmit}}
+    >Create</button>
+  </form>
+</div>

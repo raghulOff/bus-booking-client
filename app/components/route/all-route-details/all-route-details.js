@@ -57,10 +57,10 @@ export default class AllRouteDetailsComponent extends Component {
   async saveRoute(routeId) {
     const data = {
         routeId,
-        source: this.editSource,
-        destination: this.editDestination,
         distanceKm: this.editDistance,
-        estimatedTime: this.editTime
+        estimatedTime: this.editTime,
+        sourceCityId: this.city.cities.find(city => city.cityName === this.editSource)?.cityId,
+        destinationCityId: this.city.cities.find(city => city.cityName === this.editDestination)?.cityId
     }
     try {
         const response = await this.apiPut.put(ROUTE_ENDPOINTS.updateRoute, data);
@@ -81,3 +81,4 @@ export default class AllRouteDetailsComponent extends Component {
     this.currentRouteId = null;
   }
 }
+  

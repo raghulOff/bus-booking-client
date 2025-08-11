@@ -1,26 +1,29 @@
-<html>
-    <head></head>
-    <body>
-        <div class="schedule-form-container">
-            {{!-- all schedule details --}}
-            <div>
-                <button class="admin-panel-button" type="button" {{on "click" this.toggleScheduleList}}>
-                    {{if this.showScheduleList "Hide All Schedules" "Show All Schedules"}}
-                </button>
-                {{#if this.showScheduleList}}
-                    {{schedule/all-schedule-details/all-schedule-details}}
-                {{/if}}
-            </div>
-            <br>
-            {{!-- add schedule form --}}
-            <div>
-                <button class="admin-panel-button" type="button" {{on "click" this.toggleScheduleForm}}>
-                    {{if this.showScheduleForm "Hide Form" "Add Schedule"}}
-                </button>
-                {{#if this.showScheduleForm}}
-                    {{schedule/add-schedule-form/add-schedule-form}}
-                {{/if}}
-            </div>
-        </div>
-    </body>
-</html>
+<div class="schedule-form-container">
+  {{! all schedule details }}
+  <div>
+    <button
+      class="admin-panel-button"
+      type="button"
+      {{on "click" this.toggleScheduleList}}
+    >
+      {{if this.showScheduleList "Hide All Schedules" "Show All Schedules"}}
+    </button>
+    {{#if this.showScheduleList}}
+      {{schedule/all-schedule-details/all-schedule-details}}
+    {{/if}}
+  </div>
+  <br />
+  {{! add schedule form }}
+  <div>
+    <button
+      class="admin-panel-button"
+      type="button"
+      {{on "click" this.toggleScheduleForm}}
+    >
+      {{if this.showScheduleForm "Hide Form" "Add Schedule"}}
+    </button>
+    {{#if this.showScheduleForm}}
+      {{schedule/add-schedule-form/add-schedule-form}}
+    {{/if}}
+  </div>
+</div>

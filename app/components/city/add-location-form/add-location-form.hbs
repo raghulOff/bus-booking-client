@@ -1,29 +1,24 @@
-<html>
-  <head></head>
-  <body>
-    <div class="add-location-form-container">
+<div class="add-location-form-container">
 
-      <ul>
-        <br>
-        <h2>Add New Location</h2>
-        <li>
+  <ul>
+    <br />
+    <h2>Add New Location</h2>
+    <li>
 
-          Select City:
-          <select {{on "change" this.handleCity}}>
-            <option selected disabled true>--</option>
-            {{#each this.city.cities as |city|}}
-              <option value={{city.cityId}}>{{city.cityName}}</option>
-            {{/each}}
-          </select>
-        </li>
-        <li>
-          Enter location name:
-          <input {{on "input" this.handleLocation}} type="text" />
-          <button type="button" {{on "click" this.addLocation}}>Add</button>
+      Select City:
+      <select {{on "change" this.handleCity}}>
+        <option selected disabled true>--</option>
+        {{#each this.city.cities as |city|}}
+          <option value={{city.cityId}}>{{city.cityName}}</option>
+        {{/each}}
+      </select>
+    </li>
+    <li>
+      Enter location name:
+      <input {{on "input" this.handleLocation}} type="text" />
+      <button type="button" {{on "click" this.addLocation}}>Add</button>
 
-        </li>
-      </ul>
+    </li>
+  </ul>
 
-    </div>
-  </body>
-</html>
+</div>

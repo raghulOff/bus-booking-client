@@ -104,8 +104,68 @@ export default class AddScheduleFormComponent extends Component {
     }
   }
 
+  validateScheduleDetails() {
+    const now = new Date().toDateString();
+    const jd = new Date(this.journeydate);
+    const nowd = new Date(now);
+
+    if (!this.journeydate || jd < nowd) {
+      alert('Journey date must be today or in the future.');
+      return false;
+    }
+    if (!this.routeId) {
+      alert('Please select a route');
+      return false;
+    }
+    if (!this.busId) {
+      alert('Please select a bus');
+      return false;
+    }
+
+    const depDate = new Date(this.deptime);
+    if (
+      depDate.getFullYear() !== jd.getFullYear() ||
+      depDate.getMonth() !== jd.getMonth() ||
+      depDate.getDate() !== jd.getDate()
+    ) {
+      alert('Departure time must be on the same day as journey date.');
+      return false;
+    }
+    
+    if (!this.deptime || new Date(this.deptime) < new Date()) {
+      alert('Departure time must be in the future.');
+      return false;
+    }
+    if (
+      !this.arrivaltime ||
+      new Date(this.arrivaltime) < new Date(this.deptime)
+    ) {
+      alert('Arrival time must be after departure time.');
+      return false;
+    }
+
+    if (!this.price || this.price <= 0) {
+      alert('Price must be greater than 0.');
+      return false;
+    }
+
+    if (this.editBoardingLocationIds.length === 0) {
+      alert('Please select at least one boarding point.');
+      return false;
+    }
+
+    if (this.editDroppingLocationIds.length === 0) {
+      alert('Please select at least one dropping point.');
+      return false;
+    }
+    return true;
+  }
+
   @action
   async addNewSchedule() {
+    if (!this.validateScheduleDetails()) {
+      return;
+    }
     const data = {
       routeId: this.routeId,
       busId: this.busId,

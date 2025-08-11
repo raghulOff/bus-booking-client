@@ -34,7 +34,6 @@ export default class AddBusFormComponent extends Component {
 
   @action updateField(field, event) {
     this[field] = event.target.value;
-    
   }
 
   @action
@@ -78,7 +77,6 @@ export default class AddBusFormComponent extends Component {
         };
       });
     }
-
   }
 
   constructor() {
@@ -110,7 +108,6 @@ export default class AddBusFormComponent extends Component {
     } else {
       this.upperSeats = updatedSeats;
     }
-
   }
 
   @action
@@ -128,7 +125,6 @@ export default class AddBusFormComponent extends Component {
       this.upperRowInputs = { ...this.upperRowInputs, [COLNUMBER]: rows };
       this.addRowSeats(this.upperSeats, COLNUMBER, POS, rows);
     }
-
   }
 
   @action
@@ -157,75 +153,68 @@ export default class AddBusFormComponent extends Component {
       this.lowerSeats.push(seatColLower);
       this.upperSeats.push(seatColUpper);
     }
-
-
   }
 
-@action
-async addBus() {
-  // Build seatGridCount (column-wise deck row count)
-  const seatGridCount = [];
+  @action
+  async addBus() {
+    // Build seatGridCount (column-wise deck row count)
+    const seatGridCount = [];
 
-  Object.entries(this.lowerRowInputs).forEach(([col, rows]) => {
-    seatGridCount.push({
-      col_number: Number(col),
-      total_rows: Number(rows),
-      pos: 'LOWER'
-    });
-  });
-
-  Object.entries(this.upperRowInputs).forEach(([col, rows]) => {
-    seatGridCount.push({
-      col_number: Number(col),
-      total_rows: Number(rows),
-      pos: 'UPPER'
-    });
-  });
-
-  // Build seatDetails from lower and upper seats
-  const seatDetails = [];
-
-  this.lowerSeats.forEach((col) => {
-    col.row_seats.forEach((seat) => {
-      seatDetails.push({
-        row_number: seat.row_number,
-        seat_type_id: seat.seat_type_id,
-        col_number: seat.col_number,
-        pos: 'LOWER'
+    Object.entries(this.lowerRowInputs).forEach(([col, rows]) => {
+      seatGridCount.push({
+        col_number: Number(col),
+        total_rows: Number(rows),
+        pos: 'LOWER',
       });
     });
-  });
 
-  this.upperSeats.forEach((col) => {
-    col.row_seats.forEach((seat) => {
-      seatDetails.push({
-        row_number: seat.row_number,
-        seat_type_id: seat.seat_type_id,
-        col_number: seat.col_number,
-        pos: 'UPPER'
+    Object.entries(this.upperRowInputs).forEach(([col, rows]) => {
+      seatGridCount.push({
+        col_number: Number(col),
+        total_rows: Number(rows),
+        pos: 'UPPER',
       });
     });
-  });
 
-  
-  const data = {
-    vehicleNumber: this.vehicleNumber,
-    operatorName: this.operatorName,
-    busType: this.busType,
-    seatGridCount,
-    seatDetails,
-    totalColumns: this.totalColumns
-  };
+    // Build seatDetails from lower and upper seats
+    const seatDetails = [];
 
-  
-  const response = await this.apiPost.post(BUS_ENDPOINTS.addBus, data);
+    this.lowerSeats.forEach((col) => {
+      col.row_seats.forEach((seat) => {
+        seatDetails.push({
+          row_number: seat.row_number,
+          seat_type_id: seat.seat_type_id,
+          col_number: seat.col_number,
+          pos: 'LOWER',
+        });
+      });
+    });
 
-  this.bus.fetchBuses();
+    this.upperSeats.forEach((col) => {
+      col.row_seats.forEach((seat) => {
+        seatDetails.push({
+          row_number: seat.row_number,
+          seat_type_id: seat.seat_type_id,
+          col_number: seat.col_number,
+          pos: 'UPPER',
+        });
+      });
+    });
 
-  const result = await response.text();
-  alert(result);
+    const data = {
+      vehicleNumber: this.vehicleNumber,
+      operatorName: this.operatorName,
+      busType: this.busType,
+      seatGridCount,
+      seatDetails,
+      totalColumns: this.totalColumns,
+    };
 
+    const response = await this.apiPost.post(BUS_ENDPOINTS.addBus, data);
 
-}
+    this.bus.fetchBuses();
 
+    const result = await response.text();
+    alert(result);
+  }
 }

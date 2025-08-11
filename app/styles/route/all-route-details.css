@@ -19,7 +19,6 @@
 .route-table thead {
   background-color: #393e46;
   color: #00adb5;
-  text-transform: uppercase;
 }
 
 .route-table tr:hover {
