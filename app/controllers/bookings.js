@@ -2,12 +2,18 @@ import Controller from '@ember/controller';
 import { action } from '@ember/object';
 import { service } from '@ember/service';
 import { CANCEL_ENDPOINTS } from '../services/api-endpoints';
+import { tracked } from '@glimmer/tracking';
 
 export default class BookingsController extends Controller {
     @service apiPut;
     @service bookings;
+    @tracked cancelLoading = false;
+
+
+
     @action
     async cancelTicket(scheduledSeatId) {
+        this.cancelLoading = true;
         const data = {
             scheduledSeatId
         }
@@ -22,6 +28,7 @@ export default class BookingsController extends Controller {
             alert("Something went wrong.");
         }
 
+        this.cancelLoading = false;
 
     }    
 }

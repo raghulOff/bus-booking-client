@@ -68,7 +68,7 @@
 
             <input
               value={{get-col-value this.lowerRowInputs col.colNumber}}
-              class="total-rows-col"
+              class="total-rows-col input"
               {{on "input" (fn this.handleNoOfRows col.colNumber "LOWER")}}
               type="number"
               placeholder="Enter rows"
@@ -95,7 +95,7 @@
 
             <input
               value={{get-col-value this.upperRowInputs col.colNumber}}
-              class="total-rows-col"
+              class="total-rows-col input"
               {{on "input" (fn this.handleNoOfRows col.colNumber "UPPER")}}
               type="number"
               placeholder="Enter rows"
@@ -116,7 +116,8 @@
   </div>
 
   <div>
-    <button type="button" {{on "click" this.addBus}}>Add bus with seats</button>
+    <button type="button" {{on "click" this.addBus}}
+    disabled={{this.addBusLoading}}>{{if this.addBusLoading "Loading" "Add bus with seats"}}</button>
   </div>
 
 </div>

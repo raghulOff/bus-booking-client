@@ -9,6 +9,21 @@ export default class CityService extends Service {
 
 
 
+   async addCity(data) {
+    try {
+      const response = await this.apiPost.post(CITY_ENDPOINTS.addCity, data);
+      let result = await response.text();
+      if (!response.ok) {
+        throw new Error(result || 'Failed to add city');
+      }
+      await this.fetchCities();
+      return result;
+    } catch (error) {
+      console.error('Error in city service: ', error);
+      throw error;
+    }
+  }
+
   async fetchCities() {
     try {
       const response = await this.apiGet.get(CITY_ENDPOINTS.getAllCities);

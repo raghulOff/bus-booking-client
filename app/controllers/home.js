@@ -17,10 +17,18 @@ export default class HomeController extends Controller {
   @tracked busdetails = null;
   @service bookingData;
 
+
+  @tracked searchLoading = false;
+  @tracked bookButtonLoading = false;
+
+
   @action
   bookNow(bus) {
+    this.bookButtonLoading = true;
+
     this.bookingData.selectedSchedule = bus;
     this.router.transitionTo('/book/' + bus.scheduleId);
+    this.bookButtonLoading = false;
   }
 
   @action
@@ -59,6 +67,7 @@ export default class HomeController extends Controller {
 
   @action
   async searchBus() {
+    this.searchLoading = true;
     await fetch(config.apiBaseUrl + BUS_ENDPOINTS.getSearchBuses, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -79,5 +88,6 @@ export default class HomeController extends Controller {
       .then((data) => {
         this.busdetails = data;
       });
+      this.searchLoading = false;
   }
 }

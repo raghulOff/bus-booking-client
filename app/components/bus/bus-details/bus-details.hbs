@@ -114,7 +114,8 @@
         class="proceed-payment-btn"
         type="button"
         {{on "click" this.handlePayment}}
-      >Pay Now</button>
+        disabled={{this.paymentLoading}}
+      >{{if this.paymentLoading "Loading" "Pay Now"}}</button>
     </div>
 
   {{else}}

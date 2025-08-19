@@ -6,68 +6,69 @@
   <div class="bookings-container">
     {{#each this.bookings.bookings as |booking|}}
       <div class="booking-card">
-        <table class="booking-details-table">
-          <tr>
-            <th>From</th>
-            <th>To</th>
-            <th>Boarding</th>
-            <th>Dropping</th>
-            <th>Operator</th>
-            <th>Arrival</th>
-            <th>Departure</th>
-            <th>Date</th>
-            <th>Paid</th>
-          </tr>
-          <tr>
-            <td>{{booking.sourceCity}}</td>
-            <td>{{booking.destinationCity}}</td>
-            <td>{{booking.boardingLocation}}</td>
-            <td>{{booking.droppingLocation}}</td>
-            <td>{{booking.operatorName}}</td>
-            <td>{{booking.arrivalTime}}</td>
-            <td>{{booking.departureTime}}</td>
-            <td>{{booking.journeyDate}}</td>
-            <td>{{booking.totalAmount}}</td>
-          </tr>
-        </table>
+        <div class="booking-details-table">
+          <div>
+            <span>From</span>
+            <span>To</span>
+            <span>Boarding</span>
+            <span>Dropping</span>
+            <span>Operator</span>
+            <span>Arrival</span>
+            <span>Departure</span>
+            <span>Date</span>
+            <span>Paid</span>
+          </div>
+          <div>
+            <span>{{booking.sourceCity}}</span>
+            <span>{{booking.destinationCity}}</span>
+            <span>{{booking.boardingLocation}}</span>
+            <span>{{booking.droppingLocation}}</span>
+            <span>{{booking.operatorName}}</span>
+            <span>{{booking.arrivalTime}}</span>
+            <span>{{booking.departureTime}}</span>
+            <span>{{booking.journeyDate}}</span>
+            <span>{{booking.totalAmount}}</span>
+          </div>
+        </div>
 
-        <table class="passenger-details-table">
-          <tr>
-            <th>Seat Number</th>
-            <th>Passenger Name</th>
-            <th>Passenger Age</th>
-          </tr>
+        <div class="passenger-details-table">
+          <div>
+            <span>Seat Number</span>
+            <span>Passenger Name</span>
+            <span>Passenger Age</span>
+          </div>
           {{#each booking.passengerDetails as |passenger|}}
-            <tr>
-              <td>{{passenger.seatNumber}}</td>
-              <td>{{passenger.passengerName}}</td>
-              <td>{{passenger.passengerAge}}</td>
+            <div>
+              <span>{{passenger.seatNumber}}</span>
+              <span>{{passenger.passengerName}}</span>
+              <span>{{passenger.passengerAge}}</span>
               {{#if (eq passenger.status_id 1)}}
-                <td
+                <span
                   {{on
                     "click"
                     (fn this.cancelTicket passenger.scheduledSeatId)
                   }}
                   class="cancel-ticket"
+                  disabled={{this.cancelLoading}}
                 >
-                  Cancel</td>
+                {{if this.cancelLoading "Loading" "Cancel"}}</span>
               {{else if (eq passenger.status_id 2)}}
-                <td class="cancelled-ticket">
+                <span class="cancelled-ticket">
                   Cancelled
-                </td>
+                </span>
               {{else if (eq passenger.status_id 5)}}
-                <td class="cancelled-ticket">
+                <span class="cancelled-ticket">
                   TRIP COMPLETED
-                </td>
+                </span>
               {{else}}
-                <td class="cancelled-ticket">
+                <span class="cancelled-ticket">
                   Schedule cancelled by admin. Amount will be refunded
-                </td>
+                </span>
               {{/if}}
 
-            </tr>
+            </div>
           {{/each}}
-        </table>
+        </div>
       </div>
     {{/each}}
   </div>

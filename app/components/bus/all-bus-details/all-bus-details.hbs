@@ -1,26 +1,26 @@
 <div>
-  <table class="bus-table">
-    <thead>
-      <tr>
-        <th>Bus ID</th>
-        <th>Bus Number</th>
-        <th>Bus Type</th>
-        <th>Operator Name</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-    <tbody>
+  <div class="bus-table">
+    <div>
+      <div>
+        <span>Bus ID</span>
+        <span>Bus Number</span>
+        <span>Bus Type</span>
+        <span>Operator Name</span>
+        <span>Actions</span>
+      </div>
+    </div>
+    <div>
       {{#each this.bus.buses as |bus|}}
-        <tr>
-          <td>{{bus.busId}}</td>
+        <div>
+          <span>{{bus.busId}}</span>
 
           {{#if (eq this.editingBusId bus.busId)}}
-            <td><input
+            <span><input
                 type="text"
                 value={{this.editBusNo}}
                 {{on "input" (fn this.updateField "editBusNo")}}
-              /></td>
-            <td>
+              /></span>
+            <span>
               <select {{on "change" (fn this.updateField "editBusType")}}>
                 <option
                   selected={{eq this.editBusType "AC Sleeper"}}
@@ -39,13 +39,13 @@
                   value="Non-AC Seater"
                 >Non-AC Seater</option>
               </select>
-            </td>
-            <td><input
+            </span>
+            <span><input
                 type="text"
                 value={{this.editOperatorName}}
                 {{on "input" (fn this.updateField "editOperatorName")}}
-              /></td>
-            <td>
+              /></span>
+            <span>
               <button
                 type="button"
                 {{on "click" (fn this.saveBus bus.busId)}}
@@ -54,13 +54,13 @@
                 type="button"
                 {{on "click" this.cancelEdit}}
               >Cancel</button>
-            </td>
+            </span>
           {{else}}
 
-            <td>{{bus.vehicleNumber}}</td>
-            <td>{{bus.busType}}</td>
-            <td>{{bus.operatorName}}</td>
-            <td>
+            <span>{{bus.vehicleNumber}}</span>
+            <span>{{bus.busType}}</span>
+            <span>{{bus.operatorName}}</span>
+            <span>
               <button
                 type="button"
                 {{on "click" (fn this.editBus bus)}}
@@ -69,12 +69,12 @@
                 type="button"
                 {{on "click" (fn this.deleteBus bus.busId)}}
               >Delete</button>
-            </td>
+            </span>
           {{/if}}
 
-        </tr>
+        </div>
       {{/each}}
-    </tbody>
-  </table>
+    </div>
+  </div>
 
 </div>

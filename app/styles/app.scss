@@ -1,0 +1,41 @@
+
+
+/* Ember supports plain CSS out of the box. More info: https://cli.emberjs.com/release/advanced-use/stylesheets/ */
+
+@import 'home/home.scss';
+@import 'other/auth.scss';
+@import 'other/nav-bar.scss';
+@import 'home/admin-home.scss';
+@import 'bus/all-bus-details.scss';
+@import 'bookings/book-bus.scss';
+@import 'bookings/bookings.scss';
+@import 'bus/seat-layout.scss';
+@import 'bus/add-bus.scss';
+@import 'schedule/add-schedule-form.scss';
+@import 'bus/bus-form.scss';
+@import 'user/add-user.scss';
+@import 'schedule/all-schedule-details.scss';
+@import 'schedule/schedule-form.scss';
+@import 'route/route-form.scss';
+@import 'city/city-form.scss';
+@import 'route/add-route-form.scss';
+@import 'route/all-route-details.scss';
+@import 'city/add-city-form.scss';
+@import 'city/all-city-details.scss';
+@import 'city/add-location-form.scss';
+
+* {
+    margin: 0;
+}
+
+body {
+    background-color: #222831;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #EEE;
+}
+
+img {
+    height: 30px;
+    width: 30px;
+}
+

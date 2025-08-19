@@ -28,7 +28,7 @@
     <button
       class="add-user-button"
       type="submit"
-      disabled={{this.disableSubmit}}
-    >Create</button>
+      disabled={{this.addUserLoading}}
+      >{{if this.addUserLoading "Loading" "Add User"}}</button>      
   </form>
 </div>

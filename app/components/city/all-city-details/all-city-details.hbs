@@ -1,28 +1,28 @@
-<table class="city-table">
-  <thead>
-    <tr>
-      <th>City Id</th>
-      <th>City Name</th>
-      <th>Actions</th>
-    </tr>
-  </thead>
-  <tbody>
+<div class="city-table">
+  <div>
+    <div>
+      <span>City Id</span>
+      <span>City Name</span>
+      <span>Actions</span>
+    </div>
+  </div>
+  <div>
     {{#each this.city.cities as |city|}}
-      <tr>
+      <div>
 
-        <td>
+        <span>
           {{city.cityId}}
-        </td>
-        <td>
+        </span>
+        <span>
           {{city.cityName}}
-        </td>
-        <td>
+        </span>
+        <span>
           <button
             type="button"
             {{on "click" (fn this.deleteCity city.cityId)}}
           >Delete</button>
-        </td>
-      </tr>
+        </span>
+      </div>
     {{/each}}
-  </tbody>
-</table>
+  </div>
+</div>

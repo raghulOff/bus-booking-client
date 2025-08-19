@@ -19,6 +19,10 @@ export default class AddBusFormComponent extends Component {
   @tracked operatorName = '';
   @tracked busType = '';
   @tracked totalColumns = null;
+  @tracked addBusLoading = false;
+
+
+
 
   @service apiPost;
 
@@ -210,11 +214,13 @@ export default class AddBusFormComponent extends Component {
       totalColumns: this.totalColumns,
     };
 
+    this.addBusLoading = true;
     const response = await this.apiPost.post(BUS_ENDPOINTS.addBus, data);
 
     this.bus.fetchBuses();
 
     const result = await response.text();
     alert(result);
+    this.addBusLoading = false;
   }
 }

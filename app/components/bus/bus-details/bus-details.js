@@ -11,6 +11,10 @@ export default class BusDetailsComponent extends Component {
   @service schedule;
   @service router;
 
+  @tracked paymentLoading = false;
+
+
+
   @action
   handleField(field, event) {
     this.bookingData[field] = event.target.value;
@@ -46,6 +50,7 @@ export default class BusDetailsComponent extends Component {
       return;
     }
 
+    this.paymentLoading = true;
     const bookSeatData = {
       userId: this.session.user.userId,
       scheduleId: this.args.model.schedule.scheduleId,
@@ -69,5 +74,9 @@ export default class BusDetailsComponent extends Component {
     this.bookingData.selectedBoardingId = null;
     this.bookingData.selectedDroppingId = null;
     this.router.transitionTo('home');
+
+
+    this.paymentLoading = false;
   }
+
 }

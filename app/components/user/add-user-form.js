@@ -10,21 +10,29 @@ export default class AddUserFormComponent extends Component {
   @service apiPost;
   @service session;
   @tracked selectedRole = '';
+  @tracked addUserLoading = false;
 
   @action
-  changeRole (event) {
+  changeRole(event) {
     this.selectedRole = event.target.value;
-    
   }
 
   get disableSubmit() {
-    return !this.username.length || !this.password.length || !this.selectedRole.length;
+    return (
+      !this.username.length ||
+      !this.password.length ||
+      !this.selectedRole.length
+    );
   }
 
   @action async onSubmit(event) {
     event.preventDefault();
-    if (this.username.length === 0 || this.password.length === 0 || this.selectedRole.length === 0) {
-      alert("Fill in the details");
+    if (
+      this.username.length === 0 ||
+      this.password.length === 0 ||
+      this.selectedRole.length === 0
+    ) {
+      alert('Fill in the details');
       return;
     }
     const data = {
@@ -33,20 +41,23 @@ export default class AddUserFormComponent extends Component {
       role: this.selectedRole,
     };
 
+    this.addUserLoading = true;
     try {
       const response = await this.apiPost.post(USER_ENDPOINTS.addUser, data);
       if (!response.ok) {
         if (response.status === 400) {
-          alert("Bad Request");
+          alert('Bad Request');
           throw response;
         }
-        alert("Username already exists");
+        alert('Username already exists');
         throw response;
       }
       alert(this.selectedRole + ' added Successfully');
     } catch (e) {
       console.error(e);
       throw e;
+    } finally {
+      this.addUserLoading = false;
     }
   }
 }

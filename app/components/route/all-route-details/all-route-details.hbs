@@ -1,21 +1,21 @@
 <div class="route-details-container">
-  <table class="route-table">
-    <thead>
-      <tr>
-        <th>Route Id</th>
-        <th>Source</th>
-        <th>Destination</th>
-        <th>Distance KM</th>
-        <th>Estimated Time</th>
-        <th>Action</th>
-      </tr>
-    </thead>
-    <tbody>
+  <div class="route-table">
+    <div>
+      <div>
+        <span>Route Id</span>
+        <span>Source</span>
+        <span>Destination</span>
+        <span>Distance KM</span>
+        <span>Estimated Time</span>
+        <span>Action</span>
+      </div>
+    </div>
+    <div>
       {{#each this.route.routes as |route|}}
-        <tr>
-          <td>{{route.routeId}}</td>
+        <div>
+          <span>{{route.routeId}}</span>
           {{#if (eq this.currentRouteId route.routeId)}}
-            <td>
+            <span>
               <select {{on "change" (fn this.updateField "editSource")}}>
                 {{#each this.city.cities as |city|}}
                   <option
@@ -24,32 +24,32 @@
                   >{{city.cityName}}</option>
                 {{/each}}
               </select>
-            </td>
-            <td>
-              <select {{on "change" (fn this.updateField "editDestination")}}>
+            </span>
+            <span>
+              <select {{on "change" (fn this.updateField "edispanestination")}}>
                 {{#each this.city.cities as |city|}}
                   <option
-                    selected={{eq this.editDestination city.cityName}}
+                    selected={{eq this.edispanestination city.cityName}}
                     value={{city.cityName}}
                   >{{city.cityName}}</option>
                 {{/each}}
               </select>
-            </td>
-            <td>
+            </span>
+            <span>
               <input
                 type="number"
-                value={{this.editDistance}}
-                {{on "input" (fn this.updateField "editDistance")}}
+                value={{this.edispanistance}}
+                {{on "input" (fn this.updateField "edispanistance")}}
               />
-            </td>
-            <td>
+            </span>
+            <span>
               <input
                 type="time"
                 value={{this.editTime}}
                 {{on "input" (fn this.updateField "editTime")}}
               />
-            </td>
-            <td>
+            </span>
+            <span>
               <button
                 type="button"
                 {{on "click" (fn this.saveRoute route.routeId)}}
@@ -59,25 +59,25 @@
                 type="button"
                 {{on "click" this.cancelRoute}}
               >Cancel</button>
-            </td>
+            </span>
           {{else}}
-            <td>{{route.source}}</td>
-            <td>{{route.destination}}</td>
-            <td>{{route.distanceKm}}</td>
-            <td>{{route.estimatedTime}}</td>
-            <td><button
+            <span>{{route.source}}</span>
+            <span>{{route.destination}}</span>
+            <span>{{route.distanceKm}}</span>
+            <span>{{route.estimatedTime}}</span>
+            <span><button
                 type="button"
                 {{on "click" (fn this.editRoute route)}}
               >Edit</button>
               <button
                 type="button"
                 {{on "click" (fn this.deleteRoute route.routeId)}}
-              >Delete</button></td>
+              >Delete</button></span>
           {{/if}}
-        </tr>
+        </div>
       {{/each}}
 
-    </tbody>
-  </table>
+    </div>
+  </div>
 
 </div>

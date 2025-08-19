@@ -47,7 +47,8 @@
       class="bus-search-btn"
       type="button"
       {{on "click" this.searchBus}}
-    >🔍︎</button>
+      disabled={{this.searchLoading}}
+    >{{if this.searchLoading "Loading" "🔍︎"}}</button>
 
   </div>
   <div class="bus-result-container">
@@ -67,7 +68,8 @@
               class="bus-card-book-btn"
               type="button"
               {{on "click" (fn this.bookNow bus)}}
-            >Book</button>
+              disabled={{this.bookButtonLoading}}
+            >{{if this.bookButtonLoading "Loading" "Book"}}</button>
           </div>
         {{/each}}
       </div>
